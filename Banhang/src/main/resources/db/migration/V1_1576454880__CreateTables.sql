@@ -19,7 +19,7 @@ create table NhaCungCap
 )
 
 create table Loai(
-	id_Loai int AUTO_INCREMENT primary key,
+	id int AUTO_INCREMENT primary key,
 	tenLoai varchar(100) not null,
 	moTa varchar(1000) not null
 )

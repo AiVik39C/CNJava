@@ -1,8 +1,11 @@
 package vn.java.banhang.controller.admin;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -13,8 +16,9 @@ import org.springframework.web.servlet.ModelAndView;
 
 import vn.java.banhang.model.SanPham;
 import vn.java.banhang.service.SanPhamService;
-
+@Controller
 public class SanPhamController {
+	@Autowired
 	private SanPhamService sanPhamService;
 
 	@GetMapping("/sanpham")
@@ -22,7 +26,7 @@ public class SanPhamController {
 		ModelAndView modelAndView = new ModelAndView();
 		modelAndView.setViewName("quan_ly_san_pham");
 		List<SanPham> listSanpham = sanPhamService.getListSanPham();
-		modelAndView.addObject("listUser", listSanpham);
+		modelAndView.addObject("listSanpham", listSanpham);
 		return modelAndView;
 			
 	}

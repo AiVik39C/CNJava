@@ -7,14 +7,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import vn.java.banhang.model.DonHang;
-import vn.java.banhang.model.NhaCungCap;
 import vn.java.banhang.repository.DonHangRepository;
-import vn.java.banhang.repository.NhaCungCapRepository;
 
 @Service
 public class DonHangService {
-	@Autowired
-	private DonHangService donHangService;
 	
 	@Autowired
 	private DonHangRepository donHangRepository;
@@ -24,7 +20,7 @@ public class DonHangService {
 	}
 	
 	public Optional<DonHang> findDonHangId(Long id) {
-		return donHangRepository.findDonHangById_DonHang(id);
+		return donHangRepository.findById(id);
 	}
 	
 	public DonHang saveDonHang(DonHang request) {

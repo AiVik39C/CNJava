@@ -12,7 +12,6 @@ public interface TaiKhoanRepository extends JpaRepository<TaiKhoan, Long> {
 	
 	List<TaiKhoan> getListByQuyen(Quyen quyen);
 	Optional<TaiKhoan> findTaiKhoanByTenTaiKhoanAndQuyen(String username, Quyen quyen);
-	boolean existsByTenTaiKhoanAndQuyen(String username, Quyen quyen); 
-	Optional<TaiKhoan> findTaiKhoanById_TaiKhoan(Long id);
+	boolean existsByTenTaiKhoanAndQuyen(String username, Quyen quyen);
 
 }

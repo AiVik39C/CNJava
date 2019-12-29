@@ -7,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import vn.java.banhang.model.NhaCungCap;
-import vn.java.banhang.model.TaiKhoan;
 import vn.java.banhang.repository.NhaCungCapRepository;
 
 @Service
@@ -20,7 +19,7 @@ public class NhaCungCapService {
 	}
 	
 	public Optional<NhaCungCap> findNCCId(Long id) {
-		return nhaCungCapRepository.findNCCById_NCC(id);
+		return nhaCungCapRepository.findById(id);
 	}
 	
 	public NhaCungCap saveNCC(NhaCungCap request) {

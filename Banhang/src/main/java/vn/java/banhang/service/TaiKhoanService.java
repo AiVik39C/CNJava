@@ -3,12 +3,9 @@ package vn.java.banhang.service;
 import java.util.List;
 import java.util.Optional;
 
-import javax.jws.soap.SOAPBinding.Use;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import vn.java.banhang.model.Loai;
 import vn.java.banhang.model.Quyen;
 import vn.java.banhang.model.TaiKhoan;
 import vn.java.banhang.repository.TaiKhoanRepository;
@@ -40,7 +37,7 @@ public class TaiKhoanService {
 	}
 	
 	public Optional<TaiKhoan> findTaiKhoanId(Long id) {
-		return taiKhoanRepository.findTaiKhoanById_TaiKhoan(id);
+		return taiKhoanRepository.findById(id);
 	}
 	
 	public TaiKhoan saveTaiKhoan(TaiKhoan request) {

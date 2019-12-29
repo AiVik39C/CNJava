@@ -38,6 +38,7 @@ public class SanPham implements Serializable {
 	
 	@ManyToMany(mappedBy = "listSanPham")
 	private List<DonHang> listDonHang;
+	public SanPham() {}
 	public SanPham(Long id_SanPham, String tenSanPham, Float giam, Float giaBan, NhaCungCap nhaCungCap, Loai loai,
 			String hinhAnh, String moTa, Integer soLuongNhap) {
 		super();

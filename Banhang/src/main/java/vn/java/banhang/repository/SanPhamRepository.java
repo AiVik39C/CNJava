@@ -1,12 +1,9 @@
 package vn.java.banhang.repository;
 
-import java.util.Optional;
-
 import org.springframework.data.jpa.repository.JpaRepository;
-
+import org.springframework.stereotype.Repository;
 
 import vn.java.banhang.model.SanPham;
-
+@Repository
 public interface SanPhamRepository extends JpaRepository<SanPham, Long> {
-	Optional<SanPham> findSanPhamById_SanPham(Long id);
 }

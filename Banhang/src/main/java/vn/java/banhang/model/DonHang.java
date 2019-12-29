@@ -42,6 +42,7 @@ public class DonHang implements Serializable{
 	@CreatedDate
 	private Instant ngayMua;
 	private String tinhTrangDH;
+	public DonHang() {}
 	public DonHang(Long id_DonHang, TaiKhoan taiKhoan, List<SanPham> listSanPham, Integer tongSoLuong, Float tongTien,
 			Instant ngayMua, String tinhTrangDH) {
 		super();

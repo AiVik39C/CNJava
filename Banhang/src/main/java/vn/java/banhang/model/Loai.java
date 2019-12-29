@@ -24,6 +24,7 @@ public class Loai implements Serializable {
 	private String moTa;
 	@OneToMany(mappedBy = "loai")
 	private List<SanPham> listSanPham;
+	public Loai() {}
 	public Loai(Long id, String tenLoai, String moTa) {
 		super();
 		this.id = id;

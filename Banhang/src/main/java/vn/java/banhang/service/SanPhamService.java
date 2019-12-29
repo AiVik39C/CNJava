@@ -11,15 +11,17 @@ import vn.java.banhang.repository.SanPhamRepository;
 
 @Service
 public class SanPhamService {
+	
 	@Autowired
 	private SanPhamRepository sanPhamRepository;
 	
 	public List<SanPham> getListSanPham() {
-		return sanPhamRepository.findAll();
+		List<SanPham> list = sanPhamRepository.findAll();
+		return list;
 	}
 	
 	public Optional<SanPham> findSanPhamId(Long id) {
-		return sanPhamRepository.findSanPhamById_SanPham(id);
+		return sanPhamRepository.findById(id);
 	}
 	
 	public SanPham saveSanPham(SanPham request) {

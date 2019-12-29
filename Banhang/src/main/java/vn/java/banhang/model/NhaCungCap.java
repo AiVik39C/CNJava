@@ -26,6 +26,7 @@ public class NhaCungCap implements Serializable {
 	@OneToMany(mappedBy = "nhaCungCap")
 	private List<SanPham> listSanPham;
 
+	public NhaCungCap() {}
 	public NhaCungCap(Long id_NCC, String tenNhaCungCap, String diaChi, String soDienThoai, List<SanPham> listSanPham) {
 		super();
 		this.id_NCC = id_NCC;
