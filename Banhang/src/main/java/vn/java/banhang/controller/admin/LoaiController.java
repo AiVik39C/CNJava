@@ -1,6 +1,7 @@
 package vn.java.banhang.controller.admin;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -10,6 +11,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.servlet.ModelAndView;
 
 import vn.java.banhang.exception.ResourceNotFoundException;
 import vn.java.banhang.model.Loai;
@@ -21,40 +23,48 @@ public class LoaiController {
 	private LoaiService loaiService;
 
 	@GetMapping("/loai")
-	public String getListLoai() {
-		List<Loai> listloai = loaiService.findAll();
-		return "";
+	public ModelAndView getListLoai() {
+		ModelAndView modelAndView = new ModelAndView();
+		modelAndView.setViewName("quan_ly_loai_san_pham");
+		List<Loai> listLoai = loaiService.getListLoai();
+		modelAndView.addObject("listLoai", listLoai);
+		return modelAndView;
 			
 	}
-
-	@PostMapping(path = "/loai")
-	public String createloai(@RequestBody Loai request) throws Exception {	
-		boolean check = loaiService.validateLoai(Long.parseLong("0"), request);
-		Loai createLoai = loaiService.createLoai(request);
-		return "";
-			
+	
+	@PostMapping("create/loai")
+	public ModelAndView createLoai(@RequestBody Loai loai) {
+		ModelAndView modelAndView = new ModelAndView();
+		modelAndView.setViewName("quan_ly_loai_san_pham");
+		List<Loai> listLoai = loaiService.getListLoai();
+		modelAndView.addObject("listLoai", listLoai);
+		return modelAndView;
 	}
-
-	@PutMapping(path = "/loai/{id}")
-	public String updateloai(@PathVariable(value = "id") Long id, @RequestBody Loai request) throws Exception {
-		
-				Loai loai = loaiService.findLoaiById(id).orElseThrow(() -> new ResourceNotFoundException("Loai", "id", id));
-				Loai updateLoai = loaiService.updateLoai(id, request);
-				return "";
-			
+	//update
+	@PutMapping("update/loai/{id}")
+	public ModelAndView updateLoai(@RequestBody Loai loai, @PathVariable (value = "id") Long loaiId) {
+		ModelAndView modelAndView = new ModelAndView();
+		modelAndView.setViewName("quan_ly_loai_san_pham");
+		Loai Loai = loaiService.updateLoai(loaiId, loai);
+		modelAndView.addObject(Loai);
+		return modelAndView;
 	}
-
+	//Hien thi chi tiet
 	@GetMapping("/loai/{id}")
-	public String getDetailloai(@PathVariable(value = "id") Long id) throws Exception {
-		Loai loai = loaiService.findLoaiById(id).orElseThrow(() -> new ResourceNotFoundException("Loai", "id", id));
-		return "";
+	public ModelAndView getDetailLoai(@PathVariable(value = "id") Long id) throws Exception {
+		ModelAndView modelAndView = new ModelAndView();
+		modelAndView.setViewName("quan_ly_loai_san_pham");
+		Optional<Loai> loai = loaiService.findLoaiById(id);
+		modelAndView.addObject(loai);
+		return modelAndView;
 			
 	}
-
 	@DeleteMapping("/loai/{id}")
-	public String deleteloai(@PathVariable(value = "id") Long id) {
-		Loai loai = loaiService.findLoaiById(id).orElseThrow(() -> new ResourceNotFoundException("loai", "id", id));
-		loaiService.deleteLoai(loai);
-		return "";
+	public ModelAndView deleteLoai(@PathVariable(value = "id") Long id) throws Exception {
+		ModelAndView modelAndView = new ModelAndView();
+		modelAndView.setViewName("quan_ly_loai_san_pham");
+		Optional<Loai> loai = loaiService.findLoaiById(id);
+		modelAndView.addObject(loai);
+		return modelAndView;
 	}
 }

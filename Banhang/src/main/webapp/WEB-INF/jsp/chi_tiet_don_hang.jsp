@@ -111,6 +111,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						        
 							<td style="text-align: center; vertical-align: middle;"><c:out value ="${donhang.id_DonHang}"/><p></td>
 							<td style="text-align: center; vertical-align: middle;"><c:out value ="${donhang.taiKhoan.tenTaiKhoan}"/><p></td>
+							<td style="text-align: center; vertical-align: middle;"><c:out value ="${donhang.listSanPham[0].tenSanPham}"/><p></td>
 							<td style="text-align: center; vertical-align: middle;"><c:out value ="${donhang.tongSoLuong}"/><p></td>
 							<td style="text-align: center; vertical-align: middle;"><c:out value ="${donhang.tongTien}"/><p></td>							
 							<td style="text-align: center; vertical-align: middle;"><c:out value ="${donhang.ngayMua}"/><p></td>
@@ -335,30 +336,43 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<div class="agileinfo-ads-display col-md-9">
 				<div class="wrapper">
 
-					<h2>Danh sách đơn hàng</h2>
+					<h1>Chi tiết đơn hàng</h1>
+
+							<div class="sanpham">
+						<div class="left1" style="width: 100%">
+					
+								<label for="tentaikhoan">Tên tài khoản:</label><br>
+								<input	type="text" id="tentaikhoan" name="tentaikhoan" placeholder=""><br>							
+								
+								<label for="donhang">Đơn hàng:</label><br>							
+								<input	type="text" id="donhang" name="donhang" placeholder=""> <br>
+							</div>
+					</div>
+							
+					<h2>Danh sách sản phẩm</h2>
 					<table style="width: 100%">
 						<tr>
 							
-							<th style="text-align: center; vertical-align: middle;">ID đơn hàng</th>
-							<th style="text-align: center; vertical-align: middle;">Tên tài khoản</th>
-							<th style="text-align: center; vertical-align: middle;">Danh sách sản phẩm</th>
+							<th style="text-align: center; vertical-align: middle;">ID sản phẩm</th>
+							<th style="text-align: center; vertical-align: middle;">Tên sản phẩm</th>
+							<th style="text-align: center; vertical-align: middle;">Loại</th>
 							<th style="text-align: center; vertical-align: middle;">Số lượng</th>
-							<th style="text-align: center; vertical-align: middle;">tổng tiền</th>
-							<th style="text-align: center; vertical-align: middle;">Ngày mua</th>
-							<th style="text-align: center; vertical-align: middle;">Tình trạng đơn hàng</th>
+							<th style="text-align: center; vertical-align: middle;">Giá tiền</th>
 						</tr>
 						<tr>
 							
-							<c:forEach var="donhang" items="${listDonHang}">
+							<c:forEach var="sanpham" items="${listSanPham}">
 						        
-							<td style="text-align: center; vertical-align: middle;"><c:out value ="${donhang.id_DonHang}"/><p></td>
-							<td style="text-align: center; vertical-align: middle;"><c:out value ="${donhang.taiKhoan.tenTaiKhoan}"/><p></td>
-							<td style="text-align: center; vertical-align: middle;"><c:out value ="${donhang.listSanPham.tenSanPham}"/><p></td>
-							<td style="text-align: center; vertical-align: middle;"><c:out value ="${donhang.tongSoLuong}"/><p></td>
-							<td style="text-align: center; vertical-align: middle;"><c:out value ="${donhang.tongTien}"/><p></td>							
-							<td style="text-align: center; vertical-align: middle;"><c:out value ="${donhang.loai.ngayMua}"/><p></td>
-							<td style="text-align: center; vertical-align: middle;"><c:out value ="${donhang.tinhTrangDH}"/><p></td>
+							<td style="text-align: center; vertical-align: middle;"><c:out value ="${sanpham.id_SanPham}"/><p></td>
+							<td style="text-align: center; vertical-align: middle;"><c:out value ="${sanpham.tenSanPham}"/><p></td>
+							<td style="text-align: center; vertical-align: middle;"><c:out value ="${sanpham.tongSoLuong}"/><p></td>
+							<td style="text-align: center; vertical-align: middle;"><c:out value ="${sanpham.tongTien}"/><p></td>							
+							<td style="text-align: center; vertical-align: middle;"><c:out value ="${sanpham.giaBan}"/><p></td>
+							<td style="text-align: center; vertical-align: middle;"><c:out value ="${sanpham.tinhTrangDH}"/><p></td>
 							</c:forEach>
+						</tr>
+						<tr>
+							 <td colspan="5">Tổng tền:</td>
 						</tr>
 					</table>
 				</div>

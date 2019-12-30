@@ -26,7 +26,7 @@ public class DonHangController {
 		ModelAndView modelAndView = new ModelAndView();
 		modelAndView.setViewName("quan_ly_don_hang");
 		List<DonHang> listDonHang = donHangService.getListDonHang();
-		modelAndView.addObject("listUser", listDonHang);
+		modelAndView.addObject("listDonHang", listDonHang);
 		return modelAndView;
 			
 	}
@@ -36,7 +36,7 @@ public class DonHangController {
 		ModelAndView modelAndView = new ModelAndView();
 		modelAndView.setViewName("quan_ly_don_hang");
 		List<DonHang> listDonHang = donHangService.getListDonHang();
-		modelAndView.addObject("listUser", listDonHang);
+		modelAndView.addObject("listDonHang", listDonHang);
 		return modelAndView;
 	}
 	//update

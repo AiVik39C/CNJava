@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -18,7 +19,7 @@
 	<!-- fonts -->
 	<link href="//fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800" rel="stylesheet">
 <style>
-
+	
 </style>
 
 <title>Fashion Style</title>
@@ -40,9 +41,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 </head>
 <body>
-	<h1>Quản lý sản phẩm</h1>
-
-
 	<!-- top Products -->
 	<div class="ads-grid">
 		<div class="container">
@@ -58,12 +56,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<!-- food preference -->
 				<div class="left-side">
 					<h3 class="agileits-sear-head">Danh sách sản phẩm</h3>
-					<select>
-						<option value="volvo">Volvo</option>
-						<option value="saab">Saab</option>
-						<option value="opel">Opel</option>
-						<option value="audi">Audi</option>
-					</select>
+					
+						
 				</div>
 				<!-- //food preference -->
 				<!-- discounts -->
@@ -71,20 +65,19 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<h3 class="agileits-sear-head.jsp">Quản lý</h3>
 					<nav>
 						<ul>
-							<li><a href="quan_ly_san_pham.jsp">Quản lý sản phẩm</a></li>
+							<li><a href="/sanpham">Quản lý sản phẩm</a></li>
 						</ul>
 						<ul>
-							<li><a href="quan_ly_user.jsp">Quản lý khách hàng</a></li>
+							<li><a href="/user">Quản lý khách hàng</a></li>
 						</ul>
 						<ul>
-							<li><a href="Quan_ly_nha_cung_cap.jsp">Quản lý nhà cung
-									cấp</a></li>
+							<li><a href="/nhacungcap">Quản lý nhà cung	cấp</a></li>
 						</ul>
 						<ul>
-							<li><a href="Quan_ly_loai.jsp">Quản lý loại sản phẩm</a></li>
+							<li><a href="/loai">Quản lý loại sản phẩm</a></li>
 						</ul>
 						<ul>
-							<li><a href="Quan_ly_don_hang">Quản lý đơn hàng</a></li>
+							<li><a href="/donhang">Quản lý đơn hàng</a></li>
 						</ul>
 					</nav>
 				</div>
@@ -101,62 +94,85 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<div class="sanpham">
 						<div class="left">
 							<form action="#" method="post">
-								<label for="id_SanPham">ID sản phẩm:</label> <input type="text"
-									id="id" name="id_sanpham" placeholder=""> <label
-									for="tensanpham">Tên sản phẩm:</label> <input type="text"
-									id="tensanpham" name="tensanpham" placeholder=""> <label
-									for="sale">Sale:</label> <input type="text" id="sale"
-									name="sale" placeholder=""> <label for="giaban">Giá
-									bán:</label> <input type="text" id="giaban" name="giaban"
-									placeholder="">
-
+								
+								<label	for="tensanpham">Tên sản phẩm:</label> 
+								<input type="text"	id="tensanpham" name="tensanpham" placeholder=""> 
+								
+								<label	for="sale">Sale:</label> 
+								<input type="text" id="sale"name="sale" placeholder=""> 
+								
+								<label for="giaban">Giá	bán:</label> 
+								<input type="text" id="giaban" name="giaban"placeholder="">
+								
+								<label for="ten_ncc">Tên nhà cung cấp:</label> 
+								<select>
+									  <option >
+									  		<c:forEach var="sanpham" items="${listsanpham}">
+									         	<c:out value ="${sanpham.nhaCungCap.tenNhaCungCap}"/><p>
+									     	</c:forEach>
+										</option>
+								</select>
 
 							</form>
 						</div>
 						<div class="right">
 							<div class="column"">
-								<label for="ten_ncc">Tên nhà cung cấp:</label> <input
-									type="text" id="ten_ncc" name="ten_ncc" placeholder="">
 
-								<label for="loai">Lọai:</label> <input type="text" id="loai"
-									name="loai" placeholder=""> <label for="hinhanh">Hình
-									ảnh:</label> <input type="text" id="hinhanh" name="hinhanh"
-									placeholder=""> <label for="mota">Mô tả:</label> <input
-									type="text" id="mota" name="mota" placeholder=""> <label
-									for="soluongnhap">Số lượng nhập:</label> <input type="text"
-									id="soluongnhap" name="soluongnhap" placeholder="">
+								<label for="sanpham">Tên loại:</label>
+								<select>
+									  <option >
+									  		<c:forEach var="loai" items="${listLoai}">
+									         	<c:out value ="${loai.tenLoai}"/><p>
+									     	</c:forEach>
+										</option>
+								</select>
+								
+								
+								<label for="hinhanh">Hình ảnh:</label> 
+								<input type="file" name="myFile">
+								
+								<label for="mota">Mô tả:</label> 
+								<input	type="text" id="mota" name="mota" placeholder=""> 
+								
+								<label	for="soluongnhap">Số lượng nhập:</label> 
+								<input type="text"	id="soluongnhap" name="soluongnhap" placeholder="">
+								
 							</div>
 						</div>
 					</div>
 
 
-					<input type="submit" value="Thêm"> <input type="submit"
-						value="Sửa"> <input type="submit" value="Xóa">
+					<input type="submit" value="Thêm"> 
+					<input type="submit"value="Sửa"> 
+					<input type="submit" value="Xóa">
 					<h2>Danh sách sản phẩm</h2>
 					<table style="width: 100%">
 						<tr>
-							<th>ID sản phẩm</th>
-							<th>Tên sản phẩm</th>
-							<th>Sale</th>
-							<th>Giá bán</th>
-							<th>Tên nhà cung cấp</th>
-							<th>Lọai</th>
-							<th>Hình ảnh</th>
-							<th>Mô tả</th>
-							<th>Số lượng nhập</th>
-							<th>Số lượng bán</th>
+							
+							<th style="text-align: center; vertical-align: middle;">ID sản phẩm</th>
+							<th style="text-align: center; vertical-align: middle;">Tên sản phẩm</th>
+							<th style="text-align: center; vertical-align: middle;">Sale</th>
+							<th style="text-align: center; vertical-align: middle;">Giá bán</th>
+							<th style="text-align: center; vertical-align: middle;">Tên nhà cung cấp</th>
+							<th style="text-align: center; vertical-align: middle;">Lọai</th>
+							<th style="text-align: center; vertical-align: middle;">Hình ảnh</th>
+							<th style="text-align: center; vertical-align: middle;">Mô tả</th>
+							<th style="text-align: center; vertical-align: middle;">Số lượng nhập</th>
 						</tr>
 						<tr>
-							<td></td>
-							<td></td>
-							<td></td>
-							<td></td>
-							<td></td>
-							<td></td>
-							<td></td>
-							<td></td>
-							<td></td>
-							<td></td>
+							
+							<c:forEach var="sanpham" items="${listSanpham}">
+						        
+							<td style="text-align: center; vertical-align: middle;"><c:out value ="${sanpham.id_SanPham}"/><p></td>
+							<td style="text-align: center; vertical-align: middle;"><c:out value ="${sanpham.tenSanPham}"/><p></td>
+							<td style="text-align: center; vertical-align: middle;"><c:out value ="${sanpham.giam}"/><p></td>
+							<td style="text-align: center; vertical-align: middle;"><c:out value ="${sanpham.giaBan}"/><p></td>
+							<td style="text-align: center; vertical-align: middle;"><c:out value ="${sanpham.nhaCungCap.tenNhaCungCap}"/><p></td>							
+							<td style="text-align: center; vertical-align: middle;"><c:out value ="${sanpham.loai.tenLoai}"/><p></td>
+							<td style="text-align: center; vertical-align: middle;"><c:out value ="${sanpham.hinhAnh}"/><p></td>
+							<td style="text-align: center; vertical-align: middle;"><c:out value ="${sanpham.moTa}"/><p></td>
+							<td style="text-align: center; vertical-align: middle;"><c:out value ="${sanpham.soLuongNhap}"/><p></td>
+							</c:forEach>
 						</tr>
 					</table>
 				</div>
