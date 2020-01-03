@@ -54,7 +54,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 				<!-- food preference -->
 				<div class="left-side">
-					<h3 class="agileits-sear-head">Danh sách sản phẩm</h3>
+					<h3 class="agileits-sear-head">
+						<li><a href="">Quản lý sản phẩm</a></li>
+					</h3>
+					
 					
 						
 				</div>
@@ -87,41 +90,29 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<!-- product right -->
 			<div class="agileinfo-ads-display col-md-9">
 				<div class="wrapper">
-
-					<h1>Danh sách đơn hàng</h1>
-
-
-							
-					<h2></h2>
-					<table style="width: 100%">
+					<c:forEach var="sanpham" items="${listSanPham}">
+					<table border="1">					
 						<tr>
-							
-							<th style="text-align: center; vertical-align: middle;">ID đơn hàng</th>
-							<th style="text-align: center; vertical-align: middle;">Tên tài khoản</th>
-							<th style="text-align: center; vertical-align: middle;">Tổng số lượng</th>
-							<th style="text-align: center; vertical-align: middle;">Tổng tiền</th>
-							<th style="text-align: center; vertical-align: middle;">Ngày mua</th>
-							<th style="text-align: center; vertical-align: middle;">Tình trạng đơn hàng</th>							
-							<th style="text-align: center; vertical-align: middle;">Action</th>
+							<td width="215px", height="250px"><c:out value ="${sanpham.id_SanPham}"/><p>
+								
+							</td>	
 						</tr>
 						<tr>
-							
-							<c:forEach var="donhang" items="${listDonHang}">
-						        
-							<td style="text-align: center; vertical-align: middle;"><c:out value ="${donhang.id_DonHang}"/><p></td>
-							<td style="text-align: center; vertical-align: middle;"><c:out value ="${donhang.taiKhoan.tenTaiKhoan}"/><p></td>
-							<td style="text-align: center; vertical-align: middle;"><c:out value ="${donhang.tongSoLuong}"/><p></td>
-							<td style="text-align: center; vertical-align: middle;"><c:out value ="${donhang.tongTien}"/><p></td>							
-							<td style="text-align: center; vertical-align: middle;"><c:out value ="${donhang.ngayMua}"/><p></td>
-							<td style="text-align: center; vertical-align: middle;"><c:out value ="${donhang.tinhTrangDH}"/><p></td>
-							<td style="text-align: center; vertical-align: middle;">
-								<button type="button">Xem chi tiết</button>
-							</td>
-							</c:forEach>
-							
+							<td height="30px"></td>
 						</tr>
+						<tr>
+							<td height="30px"></td>
+						</tr>
+						<tr>
+							<td height="30px"></td>
+						</tr>
+						<tr>
+							<td height="30px"></td>
+						</tr>						
+						
 					</table>
-				</div>
+					</c:forEach>
+					</div>
 			</div>
 			<!-- //product right -->
 		</div>
