@@ -5,8 +5,11 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import vn.java.banhang.model.Quyen;
 import vn.java.banhang.model.TaiKhoan;
 import vn.java.banhang.service.TaiKhoanService;
 
@@ -23,5 +26,32 @@ public class DanhNhapController {
 		modelAndView.addObject("listTaiKhoan", listTaiKhoan);
 		return modelAndView;
 			
+	}
+	
+	@PostMapping("/dangnhap")
+	public Object  postDangNhap(@ModelAttribute("taikhoan") TaiKhoan taikhoan) {
+		ModelAndView modelAndView = new ModelAndView();
+		List<TaiKhoan> listTaiKhoan = taiKhoanService.getListUser();
+		if(listTaiKhoan.size() > 0) {
+			for(TaiKhoan tk : listTaiKhoan)
+			{
+				if(taikhoan.getTenTaiKhoan().equalsIgnoreCase(tk.getTenTaiKhoan())) {
+					if(taikhoan.getMatKhau().equalsIgnoreCase(tk.getMatKhau())) {
+						if(taikhoan.getQuyen().equals(Quyen.ADMIN)) {
+						    return "redirect:index_admin";
+						}else {
+						    return "redirect:index";
+						}
+					}
+				}
+			}
+			modelAndView.setViewName("box_messager");
+			modelAndView.addObject("error_not_account", "Bạn chưa có tài khoản vui lòng đăng ký");
+	        return modelAndView;
+		}else {
+			modelAndView.setViewName("box_messager");
+			modelAndView.addObject("error_not_account", "Bạn chưa có tài khoản vui lòng đăng ký");
+	        return modelAndView;
+		}
 	}
 }

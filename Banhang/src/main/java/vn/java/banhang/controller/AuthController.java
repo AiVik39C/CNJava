@@ -6,8 +6,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 
 public class AuthController {
-//	@GetMapping("/users")
-//	public String users() {
-//		return "quan_ly_user";
-//	}
+//	@GetMapping("/giohang")
+	//public String giohang() {
+		//return "gio_hang";
+	//}
 }

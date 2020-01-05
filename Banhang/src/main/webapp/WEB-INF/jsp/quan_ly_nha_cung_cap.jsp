@@ -105,7 +105,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					</div>
 
 
-					<input type="submit" value="Thêm"> 
+					<a th:href="@{create/nhacungcap}"class="btn btn-success">Thêm </a>
 					<input type="submit"value="Sửa"> 
 					<input type="submit" value="Xóa">
 					<h2>Danh sách nhà cung cấp</h2>

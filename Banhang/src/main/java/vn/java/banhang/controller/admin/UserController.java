@@ -12,8 +12,11 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.servlet.ModelAndView;
+
 import vn.java.banhang.model.TaiKhoan;
 import vn.java.banhang.service.TaiKhoanService;
+
+
 
 @Controller
 public class UserController {
@@ -21,30 +24,30 @@ public class UserController {
 	private TaiKhoanService taiKhoanService;
 
 	@GetMapping("/user")
-	public ModelAndView getListUser() {
+	public ModelAndView getListTaiKhoan() {
 		ModelAndView modelAndView = new ModelAndView();
 		modelAndView.setViewName("quan_ly_user");
-		List<TaiKhoan> listuser = taiKhoanService.getListUser();
-		modelAndView.addObject("listUser", listuser);
+		List<TaiKhoan> listTaiKhoan = taiKhoanService.getListUser();
+		modelAndView.addObject("listTaiKhoan", listTaiKhoan);
 		return modelAndView;
 			
 	}
+	
 	@PostMapping("create/user")
 	public ModelAndView createTaiKhoan(@RequestBody TaiKhoan tk) {
 		ModelAndView modelAndView = new ModelAndView();
 		modelAndView.setViewName("quan_ly_user");
-		taiKhoanService.dangKy(tk);
-		List<TaiKhoan> listuser = taiKhoanService.getListUser();
-		modelAndView.addObject("listUser", listuser);
+		List<TaiKhoan> listTaiKhoan = taiKhoanService.getListUser();
+		modelAndView.addObject("listTaiKhoan", listTaiKhoan);
 		return modelAndView;
 	}
 	//update
 	@PutMapping("update/user/{id}")
-	public ModelAndView updateTaiKoan(@RequestBody TaiKhoan tk, @PathVariable (value = "id") Long userId) {
+	public ModelAndView updateTaiKhoan(@RequestBody TaiKhoan tk, @PathVariable (value = "id") Long tkId) {
 		ModelAndView modelAndView = new ModelAndView();
 		modelAndView.setViewName("quan_ly_user");
-		TaiKhoan user = taiKhoanService.updateTaiKhoan(userId, tk);
-		modelAndView.addObject(user);
+		TaiKhoan taiKhoan = taiKhoanService.updateTaiKhoan(tkId, tk);
+		modelAndView.addObject(taiKhoan);
 		return modelAndView;
 	}
 	//Hien thi chi tiet
@@ -65,8 +68,4 @@ public class UserController {
 		modelAndView.addObject(taiKhoan);
 		return modelAndView;
 	}
-	
-//	@RequestMapping("/")
-//	public String taikhoan(Map<>)
-
 }

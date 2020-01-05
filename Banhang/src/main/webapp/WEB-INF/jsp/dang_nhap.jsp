@@ -3,6 +3,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<script>
+      function loadModalWindow2() {
+         // open your window here
+         window.open("/dangnhap", chuyen trang...);
+      }
+  </script>
   <title>Đăng nhập</title>
   <meta charset="utf-8">
   <link href="css/sanpham.css" rel="stylesheet" type="text/css" media="all" />
@@ -87,16 +93,16 @@ span.psw {
 
 <div class="container">
   <h2>ĐĂNG NHẬP</h2>
-  <form action="" method="post">
+  <form action="/dangnhap" style="border:1px solid #ccc" modelAttribute="taikhoan" method="post"> 
 
   <div class="container">
-    <label for="uname"><b>Tên đăng nhập:</b></label>
-    <input type="text" placeholder="" name="uname" required>
+    <label for="tendangnhap"><b>Tên đăng nhập:</b></label>
+    <input type="text" placeholder=""  name="tenTaiKhoan" path= "tenTaiKhoan">
 
     <label for="psw"><b>Password:</b></label>
-    <input type="password" placeholder="" name="psw" required>
+    <input type="password" placeholder="" name="matKhau" path= "matKhau">
 
-    <button type="submit">Đăng nhập</button>
+    <button type="submit" class="signinbtn">Đăng nhập</button>
     <label>
       <input type="checkbox" checked="checked" name="remember"> Nhớ mật khẩu
     </label>
@@ -106,6 +112,8 @@ span.psw {
     <button type="button" class="cancelbtn">Hủy</button>
     <span class="psw">Quên <a href="#">mật khẩu</a></span>
   </div>
+  
+  
 </form>
 
 </div>

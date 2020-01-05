@@ -32,8 +32,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	 
 	<div id='maincart'>
 <h2>Giỏ Hàng Của Bạn</h2>
-<p>
-Hiện có <span class='simpleCart_quantity'/> sản phẩm<br/>
+<p>Hiện có <span class='simpleCart_quantity'/> sản phẩm<br/>
 Tổng Số Tiền: <span class='simpleCart_total'/><br/></p>
 <ul>
 <li><a class='simpleCart_empty' href='javascript:;'>Xóa Hết</a></li>

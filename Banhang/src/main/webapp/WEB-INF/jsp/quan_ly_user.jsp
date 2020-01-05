@@ -18,9 +18,7 @@
 	<link rel="stylesheet" type="text/css" href="css/jquery-ui1.css">
 	<!-- fonts -->
 	<link href="//fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800" rel="stylesheet">
-<style>
-	
-</style>
+
 
 <title>Fashion Style</title>
 <!--/tags -->
@@ -41,6 +39,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 </head>
 <body>
+
 	<!-- top Products -->
 	<div class="ads-grid">
 		<div class="container">

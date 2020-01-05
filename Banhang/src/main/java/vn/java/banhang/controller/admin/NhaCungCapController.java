@@ -35,7 +35,7 @@ public class NhaCungCapController {
 		ModelAndView modelAndView = new ModelAndView();
 		modelAndView.setViewName("quan_ly_nha_cung_cap");
 		List<NhaCungCap> listNCC = nhaCungCapService.getListNCC();
-		modelAndView.addObject("listUser", listNCC);
+		modelAndView.addObject("listNCC", listNCC);
 		return modelAndView;
 	}
 	//update

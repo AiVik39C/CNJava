@@ -3,6 +3,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <script>
+      function loadModalWindow() {
+         // open your window here
+         window.open("/dangky", chuyen trang...);
+      }
+  </script>
   <title>Đăng nhập</title>
   <meta charset="utf-8">
   <link href="css/sanpham.css" rel="stylesheet" type="text/css" media="all" />
@@ -83,50 +89,43 @@ span.psw {
 
   </style>
 </head>
-<body>
-
-<div class="container">
-  
-<form action="action_page.php" style="border:1px solid #ccc">
+<body>  
+  <form style="border:1px solid #ccc" modelAttribute="taikhoan">  
   <div class="container">
     <h1>Đăng ký</h1>
     <p>xin hãy điền đầy đủ thông tin</p>
     <hr>
 
     <label for="tendangap"><b>Tên đăng nhập:</b></label>
-    <input type="text" placeholder="" name="ten" required>
+    <input type="text" placeholder="" name="tenTaiKhoan" path= "tenTaiKhoan">
 
     <label for="psw"><b>Mật khẩu:</b></label>
-    <input type="password" placeholder="" name="psw" required>
+    <input type="password" placeholder="" name="matKhau" path= "matKhau">
 
     <label for="hoten"><b>Họ tên:</b></label>
-    <input type="text" placeholder="" name="hoten" required>
+    <input type="text" placeholder="" name="hoTen" path= "hoTen">
     
 	<label for="gioitinh"><b>Giới tính:</b></label>
-    <select class="gt">
-    	<option>Nam</option>
-    	<option>Nữ</option>
+    <select class="gt" type = "boolean">
+    	<option name = "gioitinh" path= "gioitinh" value="true">Nam</option>
+    	<option  name = "gioitinh" path= "gioitinh" value="false">Nữ</option>
     </select><br>
     
      <label for="sdt"><b>Số điện thoại:</b></label>
-    <input type="text" placeholder="" name="sdt" required>
+    <input type="text" placeholder="" name="soDienThoai" path = "soDienThoai">
     
      <label for="email"><b>Email:</b></label>
-    <input type="text" placeholder="" name="email" required>
+    <input type="text" placeholder="" name="email" path = "email">
     
    
     <div class="clearfix">
-      <button type="submit" class="signupbtn">Đăng ký</button>
+      <button type="submit" formaction="/errordangky" formmethod="post" class="signupbtn">Đăng ký</button>
     </div>
     <div class="container" style="background-color:#f1f1f1">
     <button type="button" class="cancelbtn">Hủy</button>
   </div>
   </div>
 </form>
-
-
-
-
 
 </body>
 </html>
