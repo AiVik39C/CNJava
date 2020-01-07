@@ -88,9 +88,15 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<div class="agileinfo-ads-display col-md-9">
 				<div class="wrapper">
 
-					<h1>Danh sách đơn hàng</h1>
+					<h1>Chi tiết đơn hàng</h1>
 
-
+					<form action="#" method="post">
+						<label for="tenTaiKhoan">ID Loại sản phẩm:</label>
+						<input type="text" id="tenTaiKhoan" name="tenTaiKhoan" placeholder="" >
+						
+					    <label for="ngayMua">Tên Loại sản phẩm:</label>
+					    <input type="text" id="ngayMua" name="ngayMua" placeholder="" >
+					</form>
 							
 					<h2></h2>
 					<table style="width: 100%">
@@ -117,7 +123,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							<td style="text-align: center; vertical-align: middle;"><c:out value ="${donhang.ngayMua}"/><p></td>
 							<td style="text-align: center; vertical-align: middle;"><c:out value ="${donhang.tinhTrangDH}"/><p></td>
 							<td style="text-align: center; vertical-align: middle;">
-								<button type="button">Xem chi tiết</button>
+								<button type="button" >Xem chi tiết</button>
 							</td>
 							</c:forEach>
 							

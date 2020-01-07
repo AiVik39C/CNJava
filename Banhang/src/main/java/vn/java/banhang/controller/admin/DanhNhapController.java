@@ -28,6 +28,17 @@ public class DanhNhapController {
 			
 	}
 	
+	@GetMapping("/head")
+	public ModelAndView getListHead() {
+		ModelAndView modelAndView = new ModelAndView();
+		modelAndView.setViewName("head");
+		List<TaiKhoan> listTaiKhoan = taiKhoanService.getListUser();
+		modelAndView.addObject("listTaiKhoan", listTaiKhoan);
+		return modelAndView;
+			
+	}
+	
+	
 	@PostMapping("/dangnhap")
 	public Object  postDangNhap(@ModelAttribute("taikhoan") TaiKhoan taikhoan) {
 		ModelAndView modelAndView = new ModelAndView();
@@ -53,5 +64,15 @@ public class DanhNhapController {
 			modelAndView.addObject("error_not_account", "Bạn chưa có tài khoản vui lòng đăng ký");
 	        return modelAndView;
 		}
+	}
+	
+	private boolean validateInfoAccountDN(TaiKhoan tk) {
+		if(tk.getTenTaiKhoan() == null || tk.getTenTaiKhoan().equals("")) {
+			return false;
+		}
+		if(tk.getMatKhau() == null || tk.getMatKhau().equals("")) {
+			return false;
+		}
+		return true;
 	}
 }

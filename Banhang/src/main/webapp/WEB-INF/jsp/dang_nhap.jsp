@@ -3,19 +3,21 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<script>
-      function loadModalWindow2() {
-         // open your window here
-         window.open("/dangnhap", chuyen trang...);
-      }
-  </script>
   <title>Đăng nhập</title>
   <meta charset="utf-8">
   <link href="css/sanpham.css" rel="stylesheet" type="text/css" media="all" />
   <style>
   	
   	form {
-  border: 3px solid #f1f1f1;
+  border: 1px solid #ccc;
+  width: 450px;
+}
+#form_login{
+left: 55%;
+    top: 60%;
+    margin-left: -25%;
+    position: absolute;
+    margin-top: -25%;
 }
 
 /* Full-width inputs */
@@ -59,11 +61,7 @@ h2{
   margin: 24px 0 12px 0;
 }
 
-/* Avatar image */
-img.avatar {
-  width: 40%;
-  border-radius: 50%;
-}
+
 
 /* Add padding to containers */
 .container {
@@ -91,15 +89,15 @@ span.psw {
 </head>
 <body>
 
-<div class="container">
-  <h2>ĐĂNG NHẬP</h2>
-  <form action="/dangnhap" style="border:1px solid #ccc" modelAttribute="taikhoan" method="post"> 
 
+  
+  <form action="/dangnhap" id="form_login" modelAttribute="taikhoan" method="post"> 
+<h2>ĐĂNG NHẬP</h2>
   <div class="container">
     <label for="tendangnhap"><b>Tên đăng nhập:</b></label>
     <input type="text" placeholder=""  name="tenTaiKhoan" path= "tenTaiKhoan">
 
-    <label for="psw"><b>Password:</b></label>
+    <label for="matKhau"><b>Password:</b></label>
     <input type="password" placeholder="" name="matKhau" path= "matKhau">
 
     <button type="submit" class="signinbtn">Đăng nhập</button>
@@ -116,8 +114,33 @@ span.psw {
   
 </form>
 
-</div>
-
-
+<script>
+window.onload = function () {
+	document.getElementById("tenTaiKhoan").onchange = validatePassword;
+	document.getElementById("matKhau").onchange = validatePassword;
+}
+function validateForm()
+{
+    // Bước 1: Lấy giá trị của username và password
+    var username = document.getElementById('tenTaiKhoan').value;
+    var password = document.getElementById('matKhau').value;
+ 
+    // Bước 2: Kiểm tra dữ liệu hợp lệ hay không
+    if (username == ''){
+        alert('Bạn chưa nhập tên đăng nhập');
+    }
+    else if (password == '')
+    {
+        alert('Bạn chưa nhập mật khẩu');
+    }
+    else{
+        alert('Dữ liệu hợp lệ, ta có thể chấp nhận submit form');
+        return true;
+    }
+ 
+    return false;
+}
+		
+</script>
 </body>
 </html>

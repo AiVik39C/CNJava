@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-
+<%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,10 +16,13 @@
 <body>
 <div class="ngoai">
 	 <form action="">
-	<table border="1"  width="100%" height="auto" >
+	<table width="100%" height="auto" >
 		<tr>
+		<c:forEach var="sanpham" items="${listSanPham}">
 			<td>hình ảnh</td>
-			<td>thông tin sản phẩm</td>
+			<!--thông tin sản phẩm-->
+			<td><c:out value ="${sanpham.moTa}"/></td>
+		</c:forEach>
 		</tr>
 		
 	</table>
@@ -33,8 +36,10 @@
 		</tr>
 		
 		<tr>
+		<c:forEach var="sanpham" items="${listSanPham}">
 			<td>Kho hàng</td>
-			<td>100</td> 
+			<td><c:out value ="${sanpham.soLuongNhap}"/></td> 
+		</c:forEach>
 		</tr>
 		<tr>
 			<td>Gửi từ</td>

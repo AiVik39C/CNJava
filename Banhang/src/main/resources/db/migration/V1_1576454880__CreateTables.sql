@@ -32,13 +32,13 @@ create table SanPham
 	giaDaGiam float not null,
 	giaBan float not null,
 	id_NCC int not null,
-	id_Loai int not null,
+	id int not null,
 	hinhAnh varchar not null,	
 	moTa varchar(1000),
 	soLuongNhap int not null,
 	soLuongBan int not null
 	constraint id_NCC_FK foreign key(id_NCC) references NhaCungCap(id_NCC),
-	constraint id_Loai_FK foreign key(id_Loai) references Loai(id_Loai)
+	constraint id_FK foreign key(id) references Loai(id)
 )
 
 create table DonHang
@@ -46,6 +46,7 @@ create table DonHang
 	id_DonHang int AUTO_INCREMENT primary key,
 	id_TaiKhoan int not null,
 	tongSoLuong int not null,
+	id_SanPham int not null,
 	tongTien float not null,
 	ngayMua date not null,
 	tinhTrangDH varchar(100) not null

@@ -128,9 +128,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					</div>
 
 
-					<input type="submit" value="Thêm"> 
-					<input type="submit"value="Sửa"> 
-					<input type="submit" value="Xóa">
+					<input type="submit" formaction="/error_user" formmethod="post" value="Thêm"> 
+					<input type="submit" formaction="/error_user" formmethod="post" value="Sửa"> 
+					<input type="submit" formaction="/error_user" formmethod="post" value="Xóa">
 					<h2>Danh sách khách hàng</h2>
 					<table style="width: 100%">
 						<tr>

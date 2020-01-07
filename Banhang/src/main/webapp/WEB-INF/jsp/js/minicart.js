@@ -1,3 +1,4 @@
+
 /*!
  * minicart
  * The Mini Cart is a great way to improve your paypal shopping cart integration.

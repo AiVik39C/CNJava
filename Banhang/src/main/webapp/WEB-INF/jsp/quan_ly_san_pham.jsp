@@ -22,7 +22,7 @@
 	
 </style>
 
-<title>Fashion Style</title>
+<title>V2 Store</title>
 <!--/tags -->
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -41,15 +41,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 </head>
 <body>
+<header>
+<jsp:include page="head.jsp"></jsp:include>
+</header>
 	<!-- top Products -->
 	<div class="ads-grid">
 		<div class="container">
-			<!-- tittle heading -->
-			<h3 class="tittle-w3l">
-				FASHION STYLE <span class="heading-style"> <i></i> <i></i> <i></i>
-				</span>
-			</h3>
-			<!-- //tittle heading -->
 			<!-- product left -->
 			<div class="side-bar col-md-3">
 

@@ -60,6 +60,15 @@ public class DangKyController {
 		if(tk.getMatKhau() == null || tk.getMatKhau().equals("")) {
 			return false;
 		}
+		if(tk.getHoTen() == null || tk.getHoTen().equals("")) {
+			return false;
+		}
+		if(tk.getSoDienThoai() == null || tk.getSoDienThoai().equals("")) {
+			return false;
+		}
+		if(tk.getEmail() == null || tk.getEmail().equals("")) {
+			return false;
+		}
 		return true;
 	}
 }

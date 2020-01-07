@@ -99,9 +99,6 @@ span.price {
   float: right;
   color: grey;
 }
-span.soluong{
-text-align: justify;
-}
 
 /* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other (also change the direction - make the "cart" column go on top) */
 @media (max-width: 800px) {
@@ -116,19 +113,31 @@ text-align: justify;
 </head>
 <body>
 
-<h2>Giỏ hàng</h2>
-<div class="col-25">
+<h2>Thanh toán</h2>
+<div class="row">
+  <div class="col-75">
     <div class="container">
-      <h4>Sản phẩm <span class="soluong" style="color:black">Số lượng</span> <span class="price" style="color:black">Giá tiền</span></h4>
-      <p><a href="#">Product 1</a><span class="soluong"><input/></span><span class="price">$15</span></p>
-      <p><a href="#">Product 2</a><span class="price">$5</span></p>
-      <p><a href="#">Product 3</a><span class="price">$8</span></p>
-      <p><a href="#">Product 4</a><span class="price">$2</span></p>
-      <hr>
-      <p>Tổng cộng <span class="price" style="color:black"><b>$30</b></span></p>
+      <form action="/action_page.php">
+      
+        <div class="row">
+          <div class="col-50">
+            <h3>Billing Address</h3>
+            <label for="fname"><i class="fa fa-user"></i>Họ tên:</label>
+            <input type="text" id="fname" name="firstname" placeholder="">
+            <label for="phone"><i class="fa fa-phone"></i>Số điện thoại:</label>
+            <input type="text" id="phone" name="phone" placeholder="">
+            <label for="email"><i class="fa fa-envelope"></i>Email:</label>
+            <input type="text" id="email" name="email" placeholder="">
+            <label for="adr"><i class="fa fa-address-card-o"></i>Địa chỉ:</label>
+            <input type="text" id="adr" name="address" placeholder="">
+          </div>
+        </div>
+        <label>Note: Phí ship toàn quốc 35.000đ</label>
+        <input type="submit" value="Thanh toán" class="btn">
+      </form>
     </div>
-</div>
-
+  </div>
   
 </body>
 </html>
+

@@ -4,7 +4,7 @@
 <html lang="zxx">
 
 <head>
-	<title>Fashion Style</title>
+	<title>V2 Store</title>
 	<!--/tags -->
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -34,9 +34,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 <body>
 	<!-- top-header -->
-	<div class="header-most-top">
-		<p>FASHION STYLE</p>
-	</div>
 	<!-- //top-header -->
 	<!-- header-bot-->
 	<div class="header-bot">
@@ -45,9 +42,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<div class="col-md-4 logo_agile">
 				<h1>
 					<a href="index.html">
-						<span>F</span>ashion
-						<span>S</span>tyle
-						<img src="images/anh1.jpg" alt=" ">
+						<span>V</span>2
+						<span>S</span>tore
+						<img src="image/anh1.jpg" alt=" ">
 					</a>
 				</h1>
 			</div>
@@ -56,8 +53,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<!-- header lists -->
 				<ul>
 					<li>
-						<a class="play-icon popup-with-zoom-anim" href="#small-dialog1">
-							<span class="fa fa-map-marker" aria-hidden="true"></span> Vị trí cửa hàng</a>
+						<a> 390 Nguyễn Thái Học, Quy Nhơn</a>
 					</li>
 					<li>
 						<a href="#" data-toggle="modal" data-target="#myModal1">
@@ -67,12 +63,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<span class="fa fa-phone" aria-hidden="true"></span> 001 234 5678
 					</li>
 					<li>
-						<a href="#" data-toggle="modal" data-target="#myModal1">
-							<span class="fa fa-unlock-alt" aria-hidden="true"></span> Đăng nhập</a>
+						<a href="dang_nhap.jsp"></span> Đăng nhập</a>
 					</li>
 					<li>
-						<a href="#" data-toggle="modal" data-target="#myModal2">
-							<span class="fa fa-pencil-square-o" aria-hidden="true"></span> Đăng ký </a>
+						<a href="dang_ky"></span> Đăng ký </a>
 					</li>
 				</ul>
 				<!-- //header lists -->
@@ -124,47 +118,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	</div>
 	<!-- //shop locator (popup) -->
 
-	<!-- signup Model -->
-	<!-- Modal2 -->
-	<div class="modal fade" id="myModal2" tabindex="-1" role="dialog">
-		<div class="modal-dialog">
-			<!-- Modal content-->
-			<div class="modal-content">
-				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal">&times;</button>
-				</div>
-				<div class="modal-body modal-body-sub_agile">
-					<div class="main-mailposi">
-						<span class="fa fa-envelope-o" aria-hidden="true"></span>
-					</div>
-					<div class="modal_body_left modal_body_left1">
-						<h3 class="agileinfo_sign">Đăng  ký</h3>
-						<p>
-							Chào mừng bạn đến với Fashion Style! Hãy tạo tài khoản.
-						</p>
-						<form action="#" method="post">
-							<div class="styled-input agile-styled-input-top">
-								<input type="text" placeholder="Tên tài khoản" name="Name" required>
-							</div>
-							<div class="styled-input">
-								<input type="email" placeholder="E-mail" name="Email" required>
-							</div>
-							<div class="styled-input">
-								<input type="password" placeholder="Mật khẩu" name="password" id="password1" required>
-							</div>
-							<div class="styled-input">
-								<input type="password" placeholder="Nhập lại mật khẩu" name="Confirm Password" id="password2" required>
-							</div>
-							<input type="submit" value="Đăng ký">
-						</form>
-					</div>
-				</div>
-			</div>
-			<!-- //Modal content-->
-		</div>
-	</div>
-	<!-- //Modal2 -->
-	<!-- //signup Model -->
+	
 	<!-- //header-bot -->
 	<!-- navigation -->
 	<div class="ban-top">
@@ -255,76 +209,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		</div>
 	</div>
 	<!-- //navigation -->
-	<!-- banner -->
-	<div id="myCarousel" class="carousel slide" data-ride="carousel">
-		<!-- Indicators-->
-		<ol class="carousel-indicators">
-			<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-			<li data-target="#myCarousel" data-slide-to="1" class=""></li>
-			<li data-target="#myCarousel" data-slide-to="2" class=""></li>
-			<li data-target="#myCarousel" data-slide-to="3" class=""></li>
-		</ol>
-		<div class="carousel-inner" role="listbox">
-			<div class="item active">
-				<div class="container">
-					<div class="carousel-caption">
-						<h3>Big
-							<span>Save</span>
-						</h3>
-						<p>Get flat
-							<span>10%</span> Cashback</p>
-						<a class="button2" href="product.html">Shop Now </a>
-					</div>
-				</div>
-			</div>
-			<div class="item item2">
-				<div class="container">
-					<div class="carousel-caption">
-						<h3>Healthy
-							<span>Saving</span>
-						</h3>
-						<p>Get Upto
-							<span>30%</span> Off</p>
-						<a class="button2" href="product.html">Shop Now </a>
-					</div>
-				</div>
-			</div>
-			<div class="item item3">
-				<div class="container">
-					<div class="carousel-caption">
-						<h3>Big
-							<span>Deal</span>
-						</h3>
-						<p>Get Best Offer Upto
-							<span>20%</span>
-						</p>
-						<a class="button2" href="product.html">Shop Now </a>
-					</div>
-				</div>
-			</div>
-			<div class="item item4">
-				<div class="container">
-					<div class="carousel-caption">
-						<h3>Today
-							<span>Discount</span>
-						</h3>
-						<p>Get Now
-							<span>40%</span> Discount</p>
-						<a class="button2" href="product.html">Shop Now </a>
-					</div>
-				</div>
-			</div>
-		</div>
-		<a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
-			<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-			<span class="sr-only">Previous</span>
-		</a>
-		<a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
-			<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-			<span class="sr-only">Next</span>
-		</a>
-	</div>
-	<!-- //banner -->
+	
 
 </body>
 </html>

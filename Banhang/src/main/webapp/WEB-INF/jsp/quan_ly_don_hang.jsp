@@ -97,10 +97,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<tr>
 							
 							<th style="text-align: center; vertical-align: middle;">ID đơn hàng</th>
-							<th style="text-align: center; vertical-align: middle;">Tên tài khoản</th>
-							<th style="text-align: center; vertical-align: middle;">Tổng số lượng</th>
 							<th style="text-align: center; vertical-align: middle;">Tổng tiền</th>
-							<th style="text-align: center; vertical-align: middle;">Ngày mua</th>
 							<th style="text-align: center; vertical-align: middle;">Tình trạng đơn hàng</th>							
 							<th style="text-align: center; vertical-align: middle;">Action</th>
 						</tr>
@@ -109,13 +106,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							<c:forEach var="donhang" items="${listDonHang}">
 						        
 							<td style="text-align: center; vertical-align: middle;"><c:out value ="${donhang.id_DonHang}"/><p></td>
-							<td style="text-align: center; vertical-align: middle;"><c:out value ="${donhang.taiKhoan.tenTaiKhoan}"/><p></td>
 							<td style="text-align: center; vertical-align: middle;"><c:out value ="${donhang.tongSoLuong}"/><p></td>
-							<td style="text-align: center; vertical-align: middle;"><c:out value ="${donhang.tongTien}"/><p></td>							
-							<td style="text-align: center; vertical-align: middle;"><c:out value ="${donhang.ngayMua}"/><p></td>
 							<td style="text-align: center; vertical-align: middle;"><c:out value ="${donhang.tinhTrangDH}"/><p></td>
 							<td style="text-align: center; vertical-align: middle;">
-								<button type="button">Xem chi tiết</button>
+								<a href="chi_tiet_don_hang.jsp"><button type="button">Xem chi tiết</button></a>
 							</td>
 							</c:forEach>
 							

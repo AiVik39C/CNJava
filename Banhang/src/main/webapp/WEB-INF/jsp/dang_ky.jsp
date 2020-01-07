@@ -39,6 +39,7 @@ button {
   width: 100%;
 }
 
+   
 /* Add a hover effect for buttons */
 button:hover {
   opacity: 0.8;
@@ -88,19 +89,47 @@ span.psw {
  
 
   </style>
+<script>
+function validateForm()
+{
+    // Bước 1: Lấy giá trị của username và password
+    var tenTaiKhoan = document.getElementById('tenTaiKhoan').value;
+    var matKhau = document.getElementById('matKhau').value;
+ 
+    // Bước 2: Kiểm tra dữ liệu hợp lệ hay không
+    if (tenTaiKhoan == ''){
+        alert('Bạn chưa nhập tên đăng nhập');
+    }
+    else if (matKhau == '')
+    {
+        alert('Bạn chưa nhập mật khẩu');
+    }
+    else{
+        alert('Dữ liệu hợp lệ, ta có thể chấp nhận submit form');
+        return true;
+    }
+ 
+    return false;
+}
+
+ 
+</script>
+ 
 </head>
 <body>  
-  <form style="border:1px solid #ccc" modelAttribute="taikhoan">  
+  <form style="border:1px solid #ccc" id="form" action="/errordangky" method="post" modelAttribute="taikhoan">  
   <div class="container">
     <h1>Đăng ký</h1>
-    <p>xin hãy điền đầy đủ thông tin</p>
+    <p>Xin hãy điền đầy đủ thông tin</p>
     <hr>
 
     <label for="tendangap"><b>Tên đăng nhập:</b></label>
-    <input type="text" placeholder="" name="tenTaiKhoan" path= "tenTaiKhoan">
+    <input type="text" placeholder="" id="tenTaiKhoan" name="tenTaiKhoan" path= "tenTaiKhoan"pattern="[a-z]{1,50}">
 
     <label for="psw"><b>Mật khẩu:</b></label>
     <input type="password" placeholder="" name="matKhau" path= "matKhau">
+    
+    
 
     <label for="hoten"><b>Họ tên:</b></label>
     <input type="text" placeholder="" name="hoTen" path= "hoTen">
@@ -119,7 +148,7 @@ span.psw {
     
    
     <div class="clearfix">
-      <button type="submit" formaction="/errordangky" formmethod="post" class="signupbtn">Đăng ký</button>
+      <button type="submit" class="signupbtn">Đăng ký</button>
     </div>
     <div class="container" style="background-color:#f1f1f1">
     <button type="button" class="cancelbtn">Hủy</button>
