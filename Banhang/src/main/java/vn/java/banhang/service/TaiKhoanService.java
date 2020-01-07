@@ -1,5 +1,6 @@
 package vn.java.banhang.service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -8,6 +9,8 @@ import org.springframework.stereotype.Service;
 
 import vn.java.banhang.model.Quyen;
 import vn.java.banhang.model.TaiKhoan;
+import vn.java.banhang.modelRequest_Response.DangKyRequest;
+import vn.java.banhang.modelRequest_Response.DangNhapRequest;
 import vn.java.banhang.repository.TaiKhoanRepository;
 
 @Service
@@ -27,9 +30,47 @@ public class TaiKhoanService {
 	public List<TaiKhoan> getListUserByQuyen(Quyen quyen) {
 		return taiKhoanRepository.getListByQuyen(quyen);
 	}
+	public Optional<TaiKhoan> loginUser(DangNhapRequest request) {
+		return taiKhoanRepository.findTaiKhoanByTenTaiKhoanAndQuyenAndMatKhau(request.getTenTaiKhoan(), Quyen.KHACH_HANG, request.getMatKhau());
+	}
 	
 	public boolean validateTaiKhoan(String userName, Quyen quyen) {
 		return taiKhoanRepository.existsByTenTaiKhoanAndQuyen(userName, quyen);
+	}
+	public List<String> validateLogin(DangNhapRequest request) {
+		List<String> listError = new ArrayList<String>();
+		
+		if (request.getTenTaiKhoan() == null) {
+			listError.add("Tên tài khoản bắt buộc nhập!");
+		}
+		if (request.getMatKhau() == null) {
+			listError.add("Mật khẩu bắt buộc nhập!");
+		}
+		return listError;
+	}
+	
+	public List<String> validateRegister(DangKyRequest request) {
+		List<String> listError = new ArrayList<String>();
+		
+		if (request.getTenTaiKhoan() == null) {
+			listError.add("Tên tài khoản bắt buộc nhập!");
+		} else if (taiKhoanRepository.existsByTenTaiKhoan(request.getTenTaiKhoan()) ) {
+			listError.add("Tên tài khoản đã tồn tại!");
+		}
+		if (request.getMatKhau() == null) {
+			listError.add("Mật khẩu bắt buộc nhập!");
+		}
+		if (request.getEmail() == null) {
+			listError.add("Email bắt buộc nhập!");
+		} else if (taiKhoanRepository.existsByEmail(request.getEmail())) {
+			listError.add("Email đã tồn tại!");
+		}
+		if (request.getSoDienThoai() == null) {
+			listError.add("Số điện thoại bắt buộc nhập!");
+		} else if (taiKhoanRepository.existsBySoDienThoai(request.getSoDienThoai())) {
+			listError.add("Số điện thoại đã tồn tại!");
+		}
+		return listError;
 	}
 	
 	public Optional<TaiKhoan> findTaiKhoan(String userName, Quyen quyen) {
