@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import vn.java.banhang.model.Quyen;
@@ -21,7 +22,7 @@ public class AuthController {
 	private TaiKhoanService taiKhoanService;
 
 	@PostMapping("/dangky")
-	public ModelAndView dangKy(DangKyRequest request) {
+	public ModelAndView dangKy(@RequestBody DangKyRequest request) {
 		ModelAndView modelAndView = new ModelAndView();
 		modelAndView.setViewName("dang_ky");
 		BaseResponse response = new BaseResponse();
@@ -32,12 +33,14 @@ public class AuthController {
 			return modelAndView;
 		}
 		TaiKhoan taiKhoan = taiKhoanService.save(new TaiKhoan(request.getTenTaiKhoan(), request.getMatKhau(), request.getHoTen(), request.getGioitinh(), request.getSoDienThoai(), request.getEmail(), Quyen.KHACH_HANG));
-		modelAndView.addObject(taiKhoan);
+		response.setListError(listError);
+		response.setData(taiKhoan);
+		modelAndView.addObject(response);
 		return modelAndView;
 	}
 	
 	@PostMapping("/dangnhap")
-	public ModelAndView dangNhap(DangNhapRequest request) {
+	public ModelAndView dangNhap(@RequestBody DangNhapRequest request) {
 		ModelAndView modelAndView = new ModelAndView();
 		modelAndView.setViewName("dang_nhap");
 		BaseResponse response = new BaseResponse();
@@ -54,7 +57,9 @@ public class AuthController {
 			modelAndView.addObject("response", response);
 			return modelAndView;
 		}
-		modelAndView.addObject(taiKhoan);
+		response.setListError(listError);
+		response.setData(taiKhoan);
+		modelAndView.addObject(response);
 		return modelAndView;
 	}
 }

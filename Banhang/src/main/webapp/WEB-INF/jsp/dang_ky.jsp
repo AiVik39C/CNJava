@@ -117,13 +117,13 @@ function validateForm()
  
 </head>
 <body>  
-  <form style="border:1px solid #ccc" id="form" action="/errordangky" method="post" modelAttribute="taikhoan">  
+  <form style="border:1px solid #ccc" id="form" action="/dangky" method="post" modelAttribute="taikhoan">  
   <div class="container">
     <h1>Đăng ký</h1>
     <p>Xin hãy điền đầy đủ thông tin</p>
     <hr>
 
-    <label for="tendangap"><b>Tên đăng nhập:</b></label>
+    <label for="tendangnhap"><b>Tên đăng nhập:</b></label>
     <input type="text" placeholder="" id="tenTaiKhoan" name="tenTaiKhoan" path= "tenTaiKhoan"pattern="[a-z]{1,50}">
 
     <label for="psw"><b>Mật khẩu:</b></label>

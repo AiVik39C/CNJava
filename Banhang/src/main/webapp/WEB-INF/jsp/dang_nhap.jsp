@@ -91,14 +91,14 @@ span.psw {
 
 
   
-  <form action="/dangnhap" id="form_login" modelAttribute="taikhoan" method="post"> 
+  <form action="/dangnhap" id="form_login"  method="post"> 
 <h2>ĐĂNG NHẬP</h2>
   <div class="container">
     <label for="tendangnhap"><b>Tên đăng nhập:</b></label>
-    <input type="text" placeholder=""  name="tenTaiKhoan" path= "tenTaiKhoan">
+    <input type="text" placeholder=""  name="tenTaiKhoan">
 
     <label for="matKhau"><b>Password:</b></label>
-    <input type="password" placeholder="" name="matKhau" path= "matKhau">
+    <input type="password" placeholder="" name="matKhau">
 
     <button type="submit" class="signinbtn">Đăng nhập</button>
     <label>
@@ -113,7 +113,6 @@ span.psw {
   
   
 </form>
-
 <script>
 window.onload = function () {
 	document.getElementById("tenTaiKhoan").onchange = validatePassword;
