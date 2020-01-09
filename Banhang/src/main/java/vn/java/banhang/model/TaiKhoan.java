@@ -45,6 +45,16 @@ public class TaiKhoan implements Serializable  {
 	}
 	
 	public TaiKhoan() {}
+	public TaiKhoan(String tenTaiKhoan, String hoTen, Boolean gioitinh, String soDienThoai,
+			String email, Quyen quyen) {
+		super();
+		this.tenTaiKhoan = tenTaiKhoan;
+		this.hoTen = hoTen;
+		this.gioitinh = gioitinh;
+		this.soDienThoai = soDienThoai;
+		this.email = email;
+		this.quyen = quyen;
+	}
 	public TaiKhoan(String tenTaiKhoan, String matKhau, String hoTen, Boolean gioitinh, String soDienThoai,
 			String email, Quyen quyen) {
 		super();

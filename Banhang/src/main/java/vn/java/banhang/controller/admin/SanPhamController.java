@@ -1,17 +1,15 @@
 package vn.java.banhang.controller.admin;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import vn.java.banhang.model.SanPham;
@@ -32,27 +30,26 @@ public class SanPhamController {
 	}
 	
 	@PostMapping("create/sanpham")
-	public ModelAndView createSanPham(@RequestBody SanPham sp) {
+	public ModelAndView createSanPham(@ModelAttribute SanPham sp) {
 		ModelAndView modelAndView = new ModelAndView();
 		modelAndView.setViewName("quan_ly_san_pham");
-		List<SanPham> listSanPham = sanPhamService.getListSanPham();
-		modelAndView.addObject("listUser", listSanPham);
-		return modelAndView;
+		SanPham sanPham = sanPhamService.createSanPham(sp);
+		return new ModelAndView("redirect:/quan_ly_san_pham");
 	}
 	//update
 	@PutMapping("update/sanpham/{id}")
-	public Object updateSanPham(@RequestBody SanPham sp, @PathVariable (value = "id") Long spId) {
+	public ModelAndView updateSanPham(@ModelAttribute SanPham sp, @PathVariable (value = "id") Long spId) {
 		ModelAndView modelAndView = new ModelAndView();
 		modelAndView.setViewName("quan_ly_san_pham");
 		SanPham sanPham = sanPhamService.updateSanPham(spId, sp);
-		return "redirect:sanpham";
+		return new ModelAndView("redirect:/quan_ly_san_pham");
 	}
 	//Hien thi chi tiet
 	@GetMapping("/sanpham/{id}")
 	public ModelAndView getDetailSanpham(@PathVariable(value = "id") Long id) throws Exception {
 		ModelAndView modelAndView = new ModelAndView();
 		modelAndView.setViewName("quan_ly_san_pham");
-		Optional<SanPham> sanPham = sanPhamService.findSanPhamId(id);
+		SanPham sanPham = sanPhamService.findSanPhamId(id);
 		modelAndView.addObject(sanPham);
 		return modelAndView;
 			
@@ -61,8 +58,8 @@ public class SanPhamController {
 	public ModelAndView deleteSanPham(@PathVariable(value = "id") Long id) throws Exception {
 		ModelAndView modelAndView = new ModelAndView();
 		modelAndView.setViewName("quan_ly_san_pham");
-		Optional<SanPham> sanPham = sanPhamService.findSanPhamId(id);
-		modelAndView.addObject(sanPham);
-		return modelAndView;
+		SanPham sanPham = sanPhamService.findSanPhamId(id);
+		sanPhamService.deleteSanPham(sanPham);	
+		return new ModelAndView("redirect:/quan_ly_san_pham");
 	}
 }

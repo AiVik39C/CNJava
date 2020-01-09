@@ -52,6 +52,18 @@ public class SanPham implements Serializable {
 		this.moTa = moTa;
 		this.soLuongNhap = soLuongNhap;
 	}
+	public SanPham( String tenSanPham, Float giam, Float giaBan, NhaCungCap nhaCungCap, Loai loai,
+			String hinhAnh, String moTa, Integer soLuongNhap) {
+		super();
+		this.tenSanPham = tenSanPham;
+		this.giam = giam;
+		this.giaBan = giaBan;
+		this.nhaCungCap = nhaCungCap;
+		this.loai = loai;
+		this.hinhAnh = hinhAnh;
+		this.moTa = moTa;
+		this.soLuongNhap = soLuongNhap;
+	}
 	public Long getId_SanPham() {
 		return id_SanPham;
 	}

@@ -112,13 +112,11 @@ public class TaiKhoanService {
 			taiKhoan.setEmail(taiKhoan.getEmail());
 			taiKhoan.setGioitinh(taiKhoan.getGioitinh());
 			taiKhoan.setHoTen(taiKhoan.getHoTen());
-			taiKhoan.setMatKhau(taiKhoan.getMatKhau());
 			taiKhoan.setSoDienThoai(taiKhoan.getSoDienThoai());
 			taiKhoan.setTenTaiKhoan(taiKhoan.getTenTaiKhoan());
 			taiKhoan.setQuyen(taiKhoan.getQuyen());
 			final TaiKhoan updateTaiKhoan = save(taiKhoan);
 			return updateTaiKhoan;
-			
 		}
 		return null;
 	}

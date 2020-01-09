@@ -7,14 +7,12 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.springframework.web.servlet.view.RedirectView;
 
 import vn.java.banhang.model.Quyen;
 import vn.java.banhang.model.TaiKhoan;
-import vn.java.banhang.modelRequest_Response.BaseResponse;
 import vn.java.banhang.modelRequest_Response.DangKyRequest;
 import vn.java.banhang.modelRequest_Response.DangNhapRequest;
 import vn.java.banhang.service.TaiKhoanService;
@@ -35,7 +33,6 @@ public class AuthController {
 	public ModelAndView dangKy(@ModelAttribute("taikhoan") DangKyRequest request) {
 		ModelAndView modelAndView = new ModelAndView("dang_ky");
 		modelAndView.setViewName("dang_ky");
-//		BaseResponse response = new BaseResponse();
 		List<String> listError = taiKhoanService.validateRegister(request);
 		if (listError.size() != 0) {
 //			response.setListError(listError);
@@ -43,9 +40,6 @@ public class AuthController {
 			return modelAndView;
 		}
 		TaiKhoan taiKhoan = taiKhoanService.save(new TaiKhoan(request.getTenTaiKhoan(), request.getMatKhau(), request.getHoTen(), request.getGioitinh(), request.getSoDienThoai(), request.getEmail(), Quyen.KHACH_HANG));
-//		response.setListError(listError);
-//		response.setData(taiKhoan);
-//		modelAndView.addObject(response);
 		return new ModelAndView("redirect:/dang_nhap");
 	}
 	
