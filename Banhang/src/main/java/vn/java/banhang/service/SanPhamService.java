@@ -20,8 +20,8 @@ public class SanPhamService {
 		return list;
 	}
 	
-	public Optional<SanPham> findSanPhamId(Long id) {
-		return sanPhamRepository.findById(id);
+	public SanPham findSanPhamId(Long id) {
+		return sanPhamRepository.findById(id).orElse(null);
 	}
 	
 	public SanPham saveSanPham(SanPham request) {
