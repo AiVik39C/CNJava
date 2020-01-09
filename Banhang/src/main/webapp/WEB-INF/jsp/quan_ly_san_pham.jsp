@@ -139,7 +139,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					</div>
 
 
-					<input type="submit" value="Thêm"> 
+					<input formaction="create/sanpham" formmethod="post" type="submit" value="Thêm"> 
 					<input type="submit"value="Sửa"> 
 					<input type="submit" value="Xóa">
 					<h2>Danh sách sản phẩm</h2>

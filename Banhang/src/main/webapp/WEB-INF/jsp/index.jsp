@@ -23,10 +23,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		}
 	</script>
 	<!--//tags -->
-	  <link href="css/sanpham.css" rel="stylesheet" type="text/css" media="all" />
-	<link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
-	<link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
-	<link href="css/font-awesome.css" rel="stylesheet">
 	<!--pop-up-box-->
 	<link href="css/popuo-box.css" rel="stylesheet" type="text/css" media="all" />
 	<!--//pop-up-box-->
@@ -37,6 +33,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 </head>
 
 <body>
+<div>
+<jsp:include page="head.jsp"></jsp:include>
+<jsp:include page="menu.jsp"></jsp:include>
+<div>
+	<div>
 				<!-- product left -->
 			<div class="side-bar col-md-3">
 
@@ -88,6 +89,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<div class="product-sec1">
 						<div class="col-md-4 product-men">
 							<div class="men-pro-item simpleCart_shelfItem">
+							<table>
+							<tr>
+								<td>fsgear</td>
+							</tr>
+							<tr></tr>
+							
+							</table>
 							<c:forEach var="sanpham" items="${listSanPham}">
 							<table>
 								<tr>
@@ -102,9 +110,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								<tr>
 									<td><c:out value ="${sanpham.giaBan*sanpham.giam}"/></td>
 								</tr>
-								<input type="submit" value="Thêm vào nhỏ hàng"/>
+								
 								
 							</table>
+							<input type="submit" value="Thêm vào nhỏ hàng"/>
 							</c:forEach>
 							</div>
 						</div>
@@ -117,7 +126,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		</div>
 	</div>
 	<!-- //top products -->
-	
+</div>
 	
 	<footer>
 		<jsp:include page="footer.jsp"></jsp:include>

@@ -117,17 +117,18 @@ function validateForm()
  
 </head>
 <body>  
+
   <form style="border:1px solid #ccc" id="form" action="/dangky" method="post" modelAttribute="taikhoan">  
   <div class="container">
     <h1>Đăng ký</h1>
     <p>Xin hãy điền đầy đủ thông tin</p>
     <hr>
-
+  <span> ${errors}</span>
     <label for="tendangnhap"><b>Tên đăng nhập:</b></label>
-    <input type="text" placeholder="" id="tenTaiKhoan" name="tenTaiKhoan" path= "tenTaiKhoan"pattern="[a-z]{1,50}">
+    <input type="text" placeholder="" id="tenTaiKhoan" name="tenTaiKhoan" required="required" path= "tenTaiKhoan"pattern="[a-z]{1,50}">
 
     <label for="psw"><b>Mật khẩu:</b></label>
-    <input type="password" placeholder="" name="matKhau" path= "matKhau">
+    <input type="password" placeholder="" name="matKhau" path= "matKhau" required="required">
     
     
 
@@ -135,9 +136,9 @@ function validateForm()
     <input type="text" placeholder="" name="hoTen" path= "hoTen">
     
 	<label for="gioitinh"><b>Giới tính:</b></label>
-    <select class="gt" type = "boolean">
-    	<option name = "gioitinh" path= "gioitinh" value="true">Nam</option>
-    	<option  name = "gioitinh" path= "gioitinh" value="false">Nữ</option>
+    <select class="gt" type = "boolean" name="gioitinh">
+    	<option value="true">Nam</option>
+    	<option value="false">Nữ</option>
     </select><br>
     
      <label for="sdt"><b>Số điện thoại:</b></label>
@@ -146,7 +147,7 @@ function validateForm()
      <label for="email"><b>Email:</b></label>
     <input type="text" placeholder="" name="email" path = "email">
     
-   
+ 
     <div class="clearfix">
       <button type="submit" class="signupbtn">Đăng ký</button>
     </div>

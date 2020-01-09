@@ -91,8 +91,9 @@ span.psw {
 
 
   
-  <form action="/dangnhap" id="form_login"  method="post"> 
+  <form action="/dangnhap" id="form_login"  method="post" modelAttribute="login"> 
 <h2>ĐĂNG NHẬP</h2>
+<span>${errors}</span>
   <div class="container">
     <label for="tendangnhap"><b>Tên đăng nhập:</b></label>
     <input type="text" placeholder=""  name="tenTaiKhoan">

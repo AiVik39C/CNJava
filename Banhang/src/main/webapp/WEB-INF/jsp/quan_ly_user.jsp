@@ -39,17 +39,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 </head>
 <body>
-
-	<!-- top Products -->
-	<div class="ads-grid">
-		<div class="container">
-			<!-- tittle heading -->
-			<h3 class="tittle-w3l">
-				FASHION STYLE <span class="heading-style"> <i></i> <i></i> <i></i>
-				</span>
-			</h3>
-			<!-- //tittle heading -->
-			<!-- product left -->
 			<div class="side-bar col-md-3">
 
 				<!-- food preference -->
@@ -92,46 +81,48 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 					<div class="sanpham">
 						<div class="left">
-							<form action="#" method="post">
 								
 								<label	for="tentaikhoan">Tên tài khoản:</label> 
-								<input type="text"	id="tentaikhoan" name="tentaikhoan" placeholder=""> 
+								<input type="text"	id="tentaikhoan" name="tentaikhoan" placeholder="" th:field="*{tentaikhoan}"> 
 								
 								<label	for="matkhau">Mật khẩu:</label> 
-								<input type="password" id="matkhau"name="matkhau" placeholder=""> 
+								<input type="password" id="matkhau"name="matkhau" placeholder="" th:field="*{matkhau}"> 
 								
 								<label for="hoten">Họ tên:</label> 
-								<input type="text" id="hoten" name="hoten"placeholder="">
+								<input type="text" id="hoten" name="hoten"placeholder="" th:field="*{hoten}">
 								
 								<label for="gioitinh">Giới tính:</label> 
 								<select>
 									  <option >Nam</option>
 									  <option >Nữ</option>
-								</select>
-
-							</form>
+								</select>							
 						</div>
 						<div class="right">
 							<div class="column"">
 
 								<label for="sdt">Số điện thoại:</label>
-								<input	type="text" id="sdt" name="sdt" placeholder=""> 								
+								<input	type="text" id="sdt" name="sdt" placeholder="" th:field="*{sdt}" pattern="{0,9}"> 								
 								
 								<label for="email">Email:</label>								
-								<input	type="text" id="email" name="email" placeholder=""> 
+								<input	type="text" id="email" name="email" placeholder="" th:field="*{email}"> 
 								
 								<label for="quyen">Quyền:</label> 
-								<input	type="text" id="quyen" name="quyen" placeholder=""> 
+								<select>
+									  <option >ADIM</option>
+									  <option >KHACH_HANG</option>
+								</select>
 								
 							</div>
 						</div>
 					</div>
 
 
-					<input type="submit" formaction="/error_user" formmethod="post" value="Thêm"> 
-					<input type="submit" formaction="/error_user" formmethod="post" value="Sửa"> 
-					<input type="submit" formaction="/error_user" formmethod="post" value="Xóa">
+					<button th:action="@{/new}" th:object="${taiKhoan}"> Thêm</button>
+					<input type="submit" href="@{'edit/'+${taiKhoan.id}}" value="Sửa"> 
+					<input type="submit" formaction="/user/{id}" formmethod="post" value="Xóa">
 					<h2>Danh sách khách hàng</h2>
+					
+					<form action="#" th:action="@{save}" th:object="${taiKhoan}" method="post">
 					<table style="width: 100%">
 						<tr>
 							
@@ -159,18 +150,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							</c:forEach>
 						</tr>
 					</table>
+					</form>
 				</div>
 			</div>
 			<!-- //product right -->
-		</div>
-	</div>
-	<!-- //top products -->
 
-
-
-	<footer>
-		<jsp:include page="footer.jsp"></jsp:include>
-	</footer>
 	<!-- js-files -->
 	<!-- jquery -->
 	<script src="js/jquery-2.1.4.min.js"></script>

@@ -5,7 +5,7 @@
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<style>
+<!--<style>
 body {
   font-family: Arial;
   font-size: 17px;
@@ -96,7 +96,7 @@ hr {
 }
 
 span.price {
-  float: right;
+  text-align: center;
   color: grey;
 }
 span.soluong{
@@ -119,7 +119,7 @@ text-align: justify;
 <h2>Giỏ hàng</h2>
 <div class="col-25">
     <div class="container">
-      <h4>Sản phẩm <span class="soluong" style="color:black">Số lượng</span> <span class="price" style="color:black">Giá tiền</span></h4>
+      <h4>Sản phẩm<span class="soluong" style="color:black">Số lượng</span><span class="price" style="color:black">Giá tiền</span></h4>
       <p><a href="#">Product 1</a><span class="soluong"><input/></span><span class="price">$15</span></p>
       <p><a href="#">Product 2</a><span class="price">$5</span></p>
       <p><a href="#">Product 3</a><span class="price">$8</span></p>
@@ -127,8 +127,23 @@ text-align: justify;
       <hr>
       <p>Tổng cộng <span class="price" style="color:black"><b>$30</b></span></p>
     </div>
+    <button>Mua hàng</button>
 </div>
-
-  
+-->
+</head>
+<body>
+  <div class='bag'>
+<h2>Giỏ Hàng Của Bạn</h2>
+<div class='simpleCart_items'/>
+<div style='clear:both'/>
+<div class='line'/>
+Số Lượng: <span class='simpleCart_quantity'/> sản phẩm<br/>
+Tổng Cộng: <span class='simpleCart_grandTotal' id='simpleCart_grandTotal'/>
+<ul>
+<li><a class='simpleCart_empty' href='javascript:;'>Xóa Hết</a></li>
+<li><a class='simpleCart_checkout' href='javascript:;'>Thanh Toán</a></li>
+<li><a class='mycart' href='#'>Tắt Giỏ Hàng</a></li>
+</ul>
+</div>
 </body>
 </html>

@@ -27,11 +27,15 @@ public class TaiKhoanService {
 		return taiKhoanRepository.findAll();
 	}
 	
+	public TaiKhoan get(long id) {
+		return taiKhoanRepository.findById(id).get();
+	}
+	
 	public List<TaiKhoan> getListUserByQuyen(Quyen quyen) {
 		return taiKhoanRepository.getListByQuyen(quyen);
 	}
 	public Optional<TaiKhoan> loginUser(DangNhapRequest request) {
-		return taiKhoanRepository.findTaiKhoanByTenTaiKhoanAndQuyenAndMatKhau(request.getTenTaiKhoan(), Quyen.KHACH_HANG, request.getMatKhau());
+		return taiKhoanRepository.findTaiKhoanByTenTaiKhoanAndMatKhau(request.getTenTaiKhoan(), request.getMatKhau());
 	}
 	
 	public boolean validateTaiKhoan(String userName, Quyen quyen) {
@@ -96,6 +100,10 @@ public class TaiKhoanService {
 	}
 	public void deleteTaiKhoan(TaiKhoan taiKhoan) {
 		taiKhoanRepository.delete(taiKhoan);
+	}
+	
+	public void delete(long id){
+		taiKhoanRepository.deleteById(id);
 	}
 	
 	public TaiKhoan updateTaiKhoan(Long id, TaiKhoan taiKhoanRequest) {

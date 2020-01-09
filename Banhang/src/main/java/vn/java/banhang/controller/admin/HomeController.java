@@ -6,9 +6,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import vn.java.banhang.model.SanPham;
 import vn.java.banhang.service.SanPhamService;
+import vn.java.banhang.util.Constraint;
 
 
 @Controller
@@ -17,12 +19,43 @@ public class HomeController {
 	private SanPhamService sanPhamService;
 
 	@GetMapping("/home")
-	public ModelAndView getListHome() {
+	public ModelAndView getListHome(RedirectAttributes redirectAttrs) {
 		ModelAndView modelAndView = new ModelAndView();
 		modelAndView.setViewName("index");
+		List<SanPham> listSanPham = sanPhamService.getListSanPham();
+		if (Constraint.taiKhoan != null) {
+			modelAndView.addObject("user", Constraint.taiKhoan);
+		}
+		modelAndView.addObject("listSanPham", listSanPham);
+		return modelAndView;
+			
+	}
+	@GetMapping("/head")
+	public ModelAndView getListHead() {
+		ModelAndView modelAndView = new ModelAndView();
+		modelAndView.setViewName("head");
+		List<SanPham> listSanPham = sanPhamService.getListSanPham();
+		modelAndView.addObject("listSanPham", listSanPham);
+		return modelAndView;
+			
+	}
+	@GetMapping("/menu")
+	public ModelAndView getListMenu() {
+		ModelAndView modelAndView = new ModelAndView();
+		modelAndView.setViewName("menu");
+		List<SanPham> listSanPham = sanPhamService.getListSanPham();
+		modelAndView.addObject("listSanPham", listSanPham);
+		return modelAndView;
+			
+	}
+	@GetMapping("/footer")
+	public ModelAndView getListFooter() {
+		ModelAndView modelAndView = new ModelAndView();
+		modelAndView.setViewName("footer");
 		List<SanPham> listSanPham = sanPhamService.getListSanPham();
 		modelAndView.addObject("listSanPham", listSanPham);
 		return modelAndView;
 			
 	}
 }
+
