@@ -1,5 +1,7 @@
 package vn.java.banhang.modelRequest_Response;
 
+import vn.java.banhang.model.Quyen;
+
 public class DangKyRequest {
 	 private String tenTaiKhoan;
 	 private String matKhau;
@@ -7,6 +9,7 @@ public class DangKyRequest {
 	 private Boolean gioitinh;
 	 private String soDienThoai;
 	 private String email;
+//	 private Quyen quyen;
 	public DangKyRequest(String tenTaiKhoan, String matKhau, String hoTen, Boolean gioitinh, String soDienThoai,
 			String email) {
 		this.tenTaiKhoan = tenTaiKhoan;

@@ -89,7 +89,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<div class="col-md-4 product-men">
 							<div class="men-pro-item simpleCart_shelfItem">
 								<div class="men-thumb-item">
-									<a href="chitietsp"><img src="images/dam_nu.jpg" alt=""></a>
+									<a href="chitietsp/4"><img src="images/dam_nu.jpg" alt=""></a>
 									
 									<span class="product-new-top">New</span>
 								</div>

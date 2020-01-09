@@ -90,19 +90,19 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 					<div class="sanpham">
 						<div class="left">
-							<form action="#" method="post">
+							<form action="create/sanpham" method="post">
 								
 								<label	for="tensanpham">Tên sản phẩm:</label> 
-								<input type="text"	id="tensanpham" name="tensanpham" placeholder=""> 
+								<input type="text"	id="tensanpham" name="tenSanPham" placeholder=""> 
 								
 								<label	for="sale">Sale:</label> 
-								<input type="text" id="sale"name="sale" placeholder=""> 
+								<input type="text" id="sale"name="giam" placeholder=""> 
 								
 								<label for="giaban">Giá	bán:</label> 
-								<input type="text" id="giaban" name="giaban"placeholder="">
+								<input type="text" id="giaban" name="giaBan"placeholder="">
 								
 								<label for="ten_ncc">Tên nhà cung cấp:</label> 
-								<select>
+								<select name="nhaCungCap">
 									  <option >
 									  		<c:forEach var="sanpham" items="${listsanpham}">
 									         	<c:out value ="${sanpham.nhaCungCap.tenNhaCungCap}"/><p>
@@ -110,14 +110,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 										</option>
 								</select>
 
-							</form>
+							
 						</div>
 						<div class="right">
 							<div class="column"">
 
 								<label for="sanpham">Tên loại:</label>
-								<select>
-									  <option >
+								<select name="loai">
+									  <option>
 									  		<c:forEach var="loai" items="${listLoai}">
 									         	<c:out value ="${loai.tenLoai}"/><p>
 									     	</c:forEach>
@@ -126,22 +126,23 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								
 								
 								<label for="hinhanh">Hình ảnh:</label> 
-								<input type="file" name="myFile">
+								<input type="file" name="hinhAnh">
 								
 								<label for="mota">Mô tả:</label> 
-								<input	type="text" id="mota" name="mota" placeholder=""> 
+								<input	type="text" id="mota" name="moTa" placeholder=""> 
 								
 								<label	for="soluongnhap">Số lượng nhập:</label> 
-								<input type="text"	id="soluongnhap" name="soluongnhap" placeholder="">
+								<input type="text"	id="soluongnhap" name="soLuongNhap" placeholder="">
 								
 							</div>
 						</div>
 					</div>
 
 
-					<input formaction="create/sanpham" formmethod="post" type="submit" value="Thêm"> 
+					<input type="submit" value="Thêm"> 
 					<input type="submit"value="Sửa"> 
 					<input type="submit" value="Xóa">
+					</form>
 					<h2>Danh sách sản phẩm</h2>
 					<table style="width: 100%">
 						<tr>

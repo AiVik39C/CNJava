@@ -33,7 +33,10 @@ public class SanPhamController {
 	public ModelAndView createSanPham(@ModelAttribute SanPham sp) {
 		ModelAndView modelAndView = new ModelAndView();
 		modelAndView.setViewName("quan_ly_san_pham");
-		SanPham sanPham = sanPhamService.createSanPham(sp);
+		
+		SanPham sanPham = new SanPham(sp.getTenSanPham(), sp.getGiam(), sp.getGiaBan(), sp.getNhaCungCap(), sp.getLoai(), "", sp.getMoTa(), sp.getSoLuongNhap());
+		sanPhamService.save(sanPham);
+//		SanPham sanPham = sanPhamService.createSanPham(sp);
 		return new ModelAndView("redirect:/quan_ly_san_pham");
 	}
 	//update
@@ -42,7 +45,7 @@ public class SanPhamController {
 		ModelAndView modelAndView = new ModelAndView();
 		modelAndView.setViewName("quan_ly_san_pham");
 		SanPham sanPham = sanPhamService.updateSanPham(spId, sp);
-		return new ModelAndView("redirect:/quan_ly_san_pham");
+		return new ModelAndView("redirect:/sanpham");
 	}
 	//Hien thi chi tiet
 	@GetMapping("/sanpham/{id}")
