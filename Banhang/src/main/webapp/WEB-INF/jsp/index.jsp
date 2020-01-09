@@ -85,40 +85,43 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<div class="agileinfo-ads-display col-md-9">
 				<div class="wrapper">
 					<!-- third section (oils) -->
-					
-					<div class="product-sec1">
-						<div class="col-md-4 product-men">
+										
+					<div class="col-md-4 product-men">
 							<div class="men-pro-item simpleCart_shelfItem">
-							<table>
-							<tr>
-								<td>fsgear</td>
-							</tr>
-							<tr></tr>
-							
-							</table>
-							<c:forEach var="sanpham" items="${listSanPham}">
-							<table>
-								<tr>
-									<td><c:out value ="${sanpham.hinhAnh}"/></td>
-								</tr>
-								<tr>
-									<td><c:out value ="${sanpham.tenSanPham}"/></td>
-								</tr>
-								<tr>
-									<td>Giá cũ:<c:out value ="${sanpham.giaBan}"/></td>
-								</tr>
-								<tr>
-									<td><c:out value ="${sanpham.giaBan*sanpham.giam}"/></td>
-								</tr>
-								
-								
-							</table>
-							<input type="submit" value="Thêm vào nhỏ hàng"/>
-							</c:forEach>
+								<div class="men-thumb-item">
+									<a href="chitietsp"><img src="images/dam_nu.jpg" alt=""></a>
+									
+									<span class="product-new-top">New</span>
+								</div>
+								<div class="item-info-product ">
+									<h4>
+										<a href="single.html">Almonds, 100g</a>
+									</h4>
+									<div class="info-product-price">
+										<span class="item_price">$149.00</span>
+										<del>$280.00</del>										
+									</div>
+								</div>
+									<div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out">
+										<form action="#" method="post">
+											<fieldset>
+												<input type="hidden" name="cmd" value="_cart" />
+												<input type="hidden" name="add" value="1" />
+												<input type="hidden" name="business" value=" " />
+												<input type="hidden" name="item_name" value="Almonds, 100g" />
+												<input type="hidden" name="amount" value="149.00" />
+												<input type="hidden" name="discount_amount" value="1.00" />
+												<input type="hidden" name="currency_code" value="USD" />
+												<input type="hidden" name="return" value=" " />
+												<input type="hidden" name="cancel_return" value=" " />
+												<input type="submit" name="submit" value="Add to cart" class="button" />
+											</fieldset>
+										</form>
+									</div>
+
+								</div>
 							</div>
 						</div>
-						<div class="clearfix"></div>
-					</div>
 					<!-- //third section (oils) -->
 				</div>
 			</div>

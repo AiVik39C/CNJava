@@ -40,6 +40,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<span>V</span>2
 						<span>S</span>tore
 					</a>
+					<img src="images/anh1.jpg" />
 				</h1>
 			</div>
 			<!-- header-bot -->
