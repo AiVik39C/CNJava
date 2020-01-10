@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.io.Serializable;
 import java.util.List;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -26,6 +27,7 @@ public class SanPham implements Serializable {
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id_SanPham;
+	@Column(columnDefinition = "nvarchar(max)")
 	private String tenSanPham;
 	private Float giam;
 	private Float giaBan;
@@ -38,6 +40,7 @@ public class SanPham implements Serializable {
 	@JoinColumn(name = "id_TaiKhoan")
 	private Loai loai;
 	private String hinhAnh;
+	@Column(columnDefinition = "nvarchar(max)")
 	private String moTa;
 	private Integer soLuongNhap;
 	

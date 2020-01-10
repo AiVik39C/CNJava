@@ -28,9 +28,7 @@ th, td {
 	-ms-flex: 2;
 	flex: 2;
 }
-h3{
-	background-color: #4CAF50;
-}
+
 
 input[type=text], select {
 	width: 100%;

@@ -55,7 +55,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<h3 class="agileits-sear-head.jsp">Quản lý</h3>
 					<nav>
 						<ul>
-							<li  style="background: #339900"><a href="/sanpham">Quản lý sản phẩm</a></li>
+							<li><a href="/sanpham">Quản lý sản phẩm</a></li>
 						</ul>
 						<ul>
 							<li><a href="/user">Quản lý khách hàng</a></li>
@@ -141,7 +141,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<input type="submit" value="Xóa">
 					</form>
 					<h2>Danh sách sản phẩm</h2>
-					<table style="width: 100%">
+					<table style="width: 100%" id="table-sanpham">
 						<tr>
 							
 							<th style="text-align: center; vertical-align: middle;">ID sản phẩm</th>
@@ -157,7 +157,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						
 							
 							<c:forEach var="sanpham" items="${listSanpham}">
-						        <tr>
+						        <tr onclick="clickRow(<c:out value ="${sanpham.id_SanPham}"/>)">
 							<td style="text-align: center; vertical-align: middle;"><c:out value ="${sanpham.id_SanPham}"/><p></td>
 							<td style="text-align: center; vertical-align: middle;"><c:out value ="${sanpham.tenSanPham}"/><p></td>
 							<td style="text-align: center; vertical-align: middle;"><c:out value ="${sanpham.giam}"/><p></td>
@@ -179,3 +179,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 </body>
 
 </html>
+
+<script>
+	function clickRow($id) {
+		
+// 		console.log($('#table-sanpham').DataTable());
+	}
+</script>

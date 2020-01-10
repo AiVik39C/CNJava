@@ -111,9 +111,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							
 							<c:forEach var="loai" items="${listLoai}">
 						    <tr>
-							<td style="text-align: center; vertical-align: middle;"><c:out value ="${Loai.id}"/><p></td>
-							<td style="text-align: center; vertical-align: middle;"><c:out value ="${Loai.tenLoai}"/><p></td>
-							<td style="text-align: center; vertical-align: middle;"><c:out value ="${Loai.moTa}"/><p></td>
+							<td style="text-align: center; vertical-align: middle;"><c:out value ="${loai.id}"/><p></td>
+							<td style="text-align: center; vertical-align: middle;"><c:out value ="${loai.tenLoai}"/><p></td>
+							<td style="text-align: center; vertical-align: middle;"><c:out value ="${loai.moTa}"/><p></td>
 							</tr>
 							</c:forEach>
 						

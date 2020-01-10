@@ -31,9 +31,6 @@ input[type=submit]:hover {
 </head>
 <body>
 <header>
-	<jsp:include page="head.jp"></jsp:include>
-</header>
-<header>
 	<jsp:include page="head.jsp"></jsp:include>
 	<jsp:include page="menu.jsp"></jsp:include>
 </header>
@@ -43,17 +40,24 @@ input[type=submit]:hover {
 	<table width="70%" height="auto" >
 		<tr>
 		
-			<td><img src="images/ao1.jpg" alt=""> </td>
+			<td><img src="/${sanpham.hinhAnh}" alt=""> </td>
 			<!--thông tin sản phẩm-->
 			<td>
-				ÁO DÀI CÁCH TÂN CHIM HẠC IN 3D<br>
-				Chất liệu: Cát Thái in 3D<br>
-				Size: S. M. L và XL<br>
-				Màu sắc: đỏ , xanh và vàng<br>
-				Hàng thiết kế form chuẩn. Ib để shop tư vấn nhiệt tình nhé
+				<br>Tên sản phẩm: 
+				${sanpham.tenSanPham }</br>
+				Giá: 
+				${Math.round(sanpham.giaBan - sanpham.giam*sanpham.giaBan)}
+				<br>Mô tả: 
+				${sanpham.moTa}
+				<br>
+				<!-- chuyển qa trang mua hàng-->
+			<input type="submit"  value="Mua hàng">
 			</td>
 		</tr>		
+		
 	</table>
+	
+	</form>
 	<div>
 	<ul style = "background: #AAAAAA">
 	
@@ -63,27 +67,12 @@ input[type=submit]:hover {
 		<table>
 			<tr>
 				<td>Danh Mục</td>
-				<td><a href="/home">V2 Store</a>><a href="">Thời Trang Nữ</a>>Áo dài</td>
+				<td><a href="/home">V2 Store</a>><a href="">Thời Trang Nữ</a></td>
 			</tr>
-			<tr>
-				<td>Thương hiệu</td>
-				<td>Chanel</td>
-			</tr>
-			<tr>
-				<td>Kiểu tay</td>
-				<td>Tay lỡ</td>
-			</tr>
-			<tr>
-				<td>Chất liệu</td>
-				<td>Cát</td>
-			</tr>
+			
 			<tr>
 				<td>Xuất xứ</td>
 				<td>Việt Nam</td>
-			</tr>
-			<tr>
-				<td>Kho hàng</td>
-				<td>95</td>
 			</tr>
 			<tr>
 				<td>Gửi từ</td>
@@ -91,9 +80,8 @@ input[type=submit]:hover {
 			</tr>
 		</table>
 	</div>
-	<!-- chuyển qa trang mua hàng-->
-	<input type="submit"  value="Mua hàng">
-	</form>
+	
+	
 	</div> 
 
 	<footer>

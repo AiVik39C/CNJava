@@ -82,9 +82,9 @@ public class SanPhamController {
 	@GetMapping("/sanpham/{id}")
 	public ModelAndView getDetailSanpham(@PathVariable(value = "id") Long id) throws Exception {
 		ModelAndView modelAndView = new ModelAndView();
-		modelAndView.setViewName("quan_ly_san_pham");
+		modelAndView.setViewName("chi_tiet_san_pham");
 		SanPham sanPham = sanPhamService.findSanPhamId(id);
-		modelAndView.addObject(sanPham);
+		modelAndView.addObject("sanpham", sanPham);
 		return modelAndView;
 			
 	}

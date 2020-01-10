@@ -3,6 +3,7 @@ package vn.java.banhang.model;
 import java.io.Serializable;
 import java.util.List;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -19,7 +20,9 @@ public class NhaCungCap implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id_NCC;
+	@Column(columnDefinition = "nvarchar(max)")
 	private String tenNhaCungCap;
+	@Column(columnDefinition = "nvarchar(max)")
 	private String diaChi;
 	private String soDienThoai;
 	
