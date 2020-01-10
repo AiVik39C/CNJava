@@ -3,6 +3,7 @@ package vn.java.banhang.model;
 import java.io.Serializable;
 import java.util.List;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
@@ -23,6 +24,7 @@ public class TaiKhoan implements Serializable  {
 	private Long id_TaiKhoan;
 	private String tenTaiKhoan;
 	private String matKhau;
+	@Column(columnDefinition = "nvarchar(max)")
 	private String hoTen;
 	private Boolean gioitinh;
 	private String soDienThoai;

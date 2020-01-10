@@ -6,11 +6,13 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.view.RedirectView;
 
 import vn.java.banhang.model.Quyen;
 import vn.java.banhang.model.TaiKhoan;
@@ -32,18 +34,19 @@ public class UserController {
 			
 	}
 	
-	@PostMapping("create/user")
-	public ModelAndView createTaiKhoan(@RequestBody DangKyRequest request) {
-		ModelAndView modelAndView = new ModelAndView();
-		modelAndView.setViewName("quan_ly_user");
+	@PostMapping("user")
+	public RedirectView createTaiKhoan(@ModelAttribute("customer") DangKyRequest request) {
+//		ModelAndView modelAndView = new ModelAndView();
+//		modelAndView.setViewName("quan_ly_user");
+		RedirectView redirectView = new RedirectView("/user");
 		List<String> listError = taiKhoanService.validateRegister(request);
 		if (listError.size() != 0) {
-			modelAndView.addObject("errors", listError);
-			return modelAndView;
+			redirectView.addStaticAttribute("errors", listError);
+			return redirectView;
 		}
-		TaiKhoan taiKhoan = taiKhoanService.save(new TaiKhoan(request.getTenTaiKhoan(), request.getMatKhau(), request.getHoTen(), request.getGioitinh(), request.getSoDienThoai(), request.getEmail(), Quyen.ADMIN));
-		modelAndView.addObject("taiKhoan",taiKhoan);
-		return modelAndView;
+		TaiKhoan taiKhoan = taiKhoanService.save(new TaiKhoan(request.getTenTaiKhoan(), request.getMatKhau(), request.getHoTen(), request.getGioitinh(), request.getSoDienThoai(), request.getEmail(), Quyen.KHACH_HANG));
+//		modelAndView.addObject("taiKhoan",taiKhoan);
+		return redirectView;
 	}
 	//update
 	@PutMapping("update/user/{id}")

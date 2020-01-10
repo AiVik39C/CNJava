@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>V2 Store</title>
 <!--//tags -->
 	<link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />	
 	<link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
@@ -56,7 +56,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							<li><a href="/sanpham">Quản lý sản phẩm</a></li>
 						</ul>
 						<ul>
-							<li><a href="/user">Quản lý khách hàng</a></li>
+							<li  style="background: #00FF00"><a href="/user">Quản lý khách hàng</a></li>
 						</ul>
 						<ul>
 							<li><a href="/nhacungcap">Quản lý nhà cung	cấp</a></li>
@@ -78,38 +78,39 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<div class="wrapper">
 
 					<h1>Quản lý khách hàng</h1>
-
+					<span>${errors }</span>
+					<form action="user" method="post" modelAttribute="customer">
 					<div class="sanpham">
 						<div class="left">
 								
 								<label	for="tentaikhoan">Tên tài khoản:</label> 
-								<input type="text"	id="tentaikhoan" name="tentaikhoan" placeholder="" th:field="*{tentaikhoan}"> 
+								<input type="text"	id="tentaikhoan" name="tenTaiKhoan" placeholder="" th:field="*{tentaikhoan}"> 
 								
 								<label	for="matkhau">Mật khẩu:</label> 
-								<input type="password" id="matkhau"name="matkhau" placeholder="" th:field="*{matkhau}"> 
+								<input type="password" id="matkhau"name="matKhau" placeholder="" th:field="*{matkhau}"> 
 								
 								<label for="hoten">Họ tên:</label> 
-								<input type="text" id="hoten" name="hoten"placeholder="" th:field="*{hoten}">
+								<input type="text" id="hoten" name="hoTen"placeholder="" th:field="*{hoten}">
 								
 								<label for="gioitinh">Giới tính:</label> 
-								<select>
-									  <option >Nam</option>
-									  <option >Nữ</option>
+								<select name="gioitinh">
+									  <option value="true">Nam</option>
+									  <option value="false">Nữ</option>
 								</select>							
 						</div>
 						<div class="right">
 							<div class="column"">
 
 								<label for="sdt">Số điện thoại:</label>
-								<input	type="text" id="sdt" name="sdt" placeholder="" th:field="*{sdt}" pattern="{0,9}"> 								
+								<input	type="text" id="sdt" name="soDienThoai" placeholder="" th:field="*{sdt}" pattern="{0,9}"> 								
 								
 								<label for="email">Email:</label>								
 								<input	type="text" id="email" name="email" placeholder="" th:field="*{email}"> 
 								
 								<label for="quyen">Quyền:</label> 
-								<select>
-									  <option >ADIM</option>
-									  <option >KHACH_HANG</option>
+								<select name ="quyen">
+									  <option value="ADMIN">ADIM</option>
+									  <option value="KHACH_HANG">KHACH_HANG</option>
 								</select>
 								
 							</div>
@@ -117,12 +118,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					</div>
 
 
-					<button th:action="@{/new}" th:object="${taiKhoan}"> Thêm</button>
-					<input type="submit" href="@{'edit/'+${taiKhoan.id}}" value="Sửa"> 
-					<input type="submit" formaction="/user/{id}" formmethod="post" value="Xóa">
+					<input type="submit"  value="Thêm">
+					
+					</form>
 					<h2>Danh sách khách hàng</h2>
 					
-					<form action="#" th:action="@{save}" th:object="${taiKhoan}" method="post">
+					
 					<table style="width: 100%">
 						<tr>
 							
@@ -135,10 +136,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							<th style="text-align: center; vertical-align: middle;">Email</th>
 							<th style="text-align: center; vertical-align: middle;">Quyền</th>
 						</tr>
-						<tr>
+						
 							
-							<c:forEach var="user" items="${listUser}">
-						        
+							<c:forEach var="user" items="${listTaiKhoan}">
+						   <tr> 
 							<td style="text-align: center; vertical-align: middle;"><c:out value ="${user.id_TaiKhoan}"/><p></td>
 							<td style="text-align: center; vertical-align: middle;"><c:out value ="${user.tenTaiKhoan}"/><p></td>
 							<td style="text-align: center; vertical-align: middle;"><c:out value ="${user.matKhau}"/><p></td>
@@ -147,10 +148,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							<td style="text-align: center; vertical-align: middle;"><c:out value ="${user.soDienThoai}"/><p></td>
 							<td style="text-align: center; vertical-align: middle;"><c:out value ="${user.email}"/><p></td>
 							<td style="text-align: center; vertical-align: middle;"><c:out value ="${user.quyen}"/><p></td>
+							</tr>
 							</c:forEach>
-						</tr>
+						
 					</table>
-					</form>
 				</div>
 			</div>
 			<!-- //product right -->

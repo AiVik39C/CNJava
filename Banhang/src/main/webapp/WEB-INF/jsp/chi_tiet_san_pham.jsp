@@ -6,66 +6,84 @@
 <head>
 
 <meta charset="utf-8">
-<title>Fashion Style</title>
+<title>V2 Store</title>
 <style>
 .ngoai {
   margin: 15px
 }
+
+input[type=submit] {
+	float: right;
+	width: 20%;
+	background-color: #4CAF50;
+	color: white;
+	padding: 14px 20px;
+	margin: 8px 0;
+	border: none;
+	border-radius: 4px;
+	cursor: pointer;
+}
+
+input[type=submit]:hover {
+	background-color: #45a049;
+}
 </style>
 </head>
 <body>
+<header>
+	<jsp:include page="head.jsp"></jsp:include>
+	<jsp:include page="menu.jsp"></jsp:include>
+</header>
+
 <div class="ngoai">
 	 <form action="">
-	<table width="100%" height="auto" >
+	<table width="70%" height="auto" >
 		<tr>
-		<c:forEach var="sanpham" items="${listSanPham}">
-			<td>hình ảnh</td>
+		
+			<td><img src="/${sanpham.hinhAnh}" alt=""> </td>
 			<!--thông tin sản phẩm-->
-			<td><c:out value ="${sanpham.moTa}"/></td>
-		</c:forEach>
-		</tr>
-		
-	</table>
-	<h3 style="background-color:#CCCCCC">Chi tiết sản phẩm</h3><br>
-	<table>
-		<tr>
-			<td>Thương hiệu</td>
 			<td>
-				<a href="index.jsp">Fashion Style</a>
+				<br>Tên sản phẩm: 
+				${sanpham.tenSanPham }</br>
+				Giá: 
+				${Math.round(sanpham.giaBan - sanpham.giam*sanpham.giaBan)}
+				<br>Mô tả: 
+				${sanpham.moTa}
+				<br>
+				<!-- chuyển qa trang mua hàng-->
+			<input type="submit"  value="Mua hàng">
 			</td>
-		</tr>
+		</tr>		
 		
-		<tr>
-		<c:forEach var="sanpham" items="${listSanPham}">
-			<td>Kho hàng</td>
-			<td><c:out value ="${sanpham.soLuongNhap}"/></td> 
-		</c:forEach>
-		</tr>
-		<tr>
-			<td>Gửi từ</td>
-			<td>390 Nguyễn Thái Học, Quang Trung, Quy Nhơn
-		</tr>
 	</table>
-	<h3 style="background-color:#CCCCCC">Mô tả sản phẩm</h3><br>
-		<div>	
-			Đặc điểm sản phẩm: <br>
-			- Mã Quà Tặng Fashion Style hứa hẹn sẽ là món quà giá trị mà bạn dành tặng đến người thân, bạn bè của mình. <br>
-			- Mã Quà Tặng được áp dụng cho tất cả các sản phẩm có trên Fashion Style trừ mã thẻ điện thoại, thẻ sim, thẻ game và các sản phẩm Nạp Thẻ và Dịch Vụ <br>
-			- Mã quà tặng chỉ được thanh toán bằng phương thức thanh toán qua ví AirPay.<br>
-			Điều kiện sử dụng: <br>
-			- Mã quà tặng tương ứng với 25.000đ tiền mặt. <br>
-			- Mã quà tặng được sử dụng để mua hàng (trừ sim, mã thẻ, & sản phẩm Nạp thẻ và Dịch vụ) tại Fashion Style, bao gồm cả các sản phẩm trong chương trình khuyến mãi.<br> 
-			- Mã Quà Tặng có thời gian sử dụng đến: 31-03-2020 23h59. <br>
-			- Mã Quà Tặng không được áp dụng đổi trả. <br>
-			- Mã không được chuyển đổi thành tiền mặt; Không được hoàn lại tiền thừa. <br>
-			- Fashion Style sẽ không chịu trách nhiệm gì thêm trừ các lỗi kỹ thuật về mã và khách hàng không nhận được mã.<br>
-			- Mã Quà Tặng không áp dụng cho: sim, mã thẻ điện thoại, thẻ game và không bao gồm phí vận chuyển.<br>
-
-		</div>
-	<h3 style="background-color:#CCCCCC">Đánh giá sản phẩm</h3><br>
-			
+	
 	</form>
+	<div>
+	<ul style = "background: #AAAAAA">
+	
+		CHI TIẾT SẢN PHẨM
+		
+	</ul>
+		<table>
+			<tr>
+				<td>Danh Mục</td>
+				<td><a href="/home">V2 Store</a>><a href="">Thời Trang Nữ</a></td>
+			</tr>
+			
+			<tr>
+				<td>Xuất xứ</td>
+				<td>Việt Nam</td>
+			</tr>
+			<tr>
+				<td>Gửi từ</td>
+				<td>390 Nguyễn Thái Học, Quang Trung, Quy Nhơn, Bình Định</td>
+			</tr>
+		</table>
 	</div>
+	
+	
+	</div> 
+
 	<footer>
 		<jsp:include page="footer.jsp"></jsp:include>
 	</footer>
