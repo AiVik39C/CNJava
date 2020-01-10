@@ -40,7 +40,7 @@ public class AuthController {
 			return modelAndView;
 		}
 		TaiKhoan taiKhoan = taiKhoanService.save(new TaiKhoan(request.getTenTaiKhoan(), request.getMatKhau(), request.getHoTen(), request.getGioitinh(), request.getSoDienThoai(), request.getEmail(), Quyen.KHACH_HANG));
-		return new ModelAndView("redirect:/dang_nhap");
+		return new ModelAndView("redirect:/dangnhap");
 	}
 	
 	@GetMapping("/dangnhap")
@@ -56,7 +56,7 @@ public class AuthController {
 		List<String> listError = taiKhoanService.validateLogin(request);
 		if (listError.size() != 0) {
 //			response.setListError(listError);
-			RedirectView redirectView = new RedirectView("dang_nhap");
+			RedirectView redirectView = new RedirectView("dangnhap");
 			redirectView.addStaticAttribute("errors", listError);
 			return redirectView;
 		}
@@ -64,7 +64,7 @@ public class AuthController {
 		if (taiKhoan == null) {
 			listError.add("Vui lòng nhập lại tên tài khoản và mật khẩu!");
 			redirectAttributes.addAttribute("errors", listError);
-			RedirectView redirectView = new RedirectView("dang_nhap");
+			RedirectView redirectView = new RedirectView("dangnhap");
 //			("errors", listError);
 			return redirectView;
 		}
@@ -75,12 +75,12 @@ public class AuthController {
 		Constraint.taiKhoan = taiKhoan;
 		if (taiKhoan.getQuyen() == Quyen.ADMIN) {
 //			redirectAttributes.addAttribute("user", taiKhoan);
-			RedirectView redirectView = new RedirectView("/home", true);
+			RedirectView redirectView = new RedirectView("/homeadmin", true);
 //			modelAndView.addObject("user", taiKhoan);
 //			redirectView.addStaticAttribute("user", taiKhoan);
 			return redirectView;
 		}
-		RedirectView redirectView = new RedirectView("/index");
+		RedirectView redirectView = new RedirectView("/home");
 //		modelAndView.addObject("user", taiKhoan);
 		redirectView.addStaticAttribute("user", taiKhoan);
 		return redirectView;

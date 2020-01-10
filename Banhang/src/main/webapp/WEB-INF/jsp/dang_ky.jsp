@@ -89,31 +89,7 @@ span.psw {
  
 
   </style>
-<script>
-function validateForm()
-{
-    // Bước 1: Lấy giá trị của username và password
-    var tenTaiKhoan = document.getElementById('tenTaiKhoan').value;
-    var matKhau = document.getElementById('matKhau').value;
- 
-    // Bước 2: Kiểm tra dữ liệu hợp lệ hay không
-    if (tenTaiKhoan == ''){
-        alert('Bạn chưa nhập tên đăng nhập');
-    }
-    else if (matKhau == '')
-    {
-        alert('Bạn chưa nhập mật khẩu');
-    }
-    else{
-        alert('Dữ liệu hợp lệ, ta có thể chấp nhận submit form');
-        return true;
-    }
- 
-    return false;
-}
 
- 
-</script>
  
 </head>
 <body>  
@@ -125,10 +101,10 @@ function validateForm()
     <hr>
   <span> ${errors}</span>
     <label for="tendangnhap"><b>Tên đăng nhập:</b></label>
-    <input type="text" placeholder="" id="tenTaiKhoan" name="tenTaiKhoan" required="required" path= "tenTaiKhoan"pattern="[a-z]{1,50}">
+    <input type="text" placeholder="" id="tenTaiKhoan" name="tenTaiKhoan" path= "tenTaiKhoan"pattern="[a-z]{1,50}">
 
     <label for="psw"><b>Mật khẩu:</b></label>
-    <input type="password" placeholder="" name="matKhau" path= "matKhau" required="required">
+    <input type="password" placeholder="" name="matKhau" path= "matKhau">
     
     
 

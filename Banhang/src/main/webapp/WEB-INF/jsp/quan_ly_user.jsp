@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>V2 Store</title>
 <!--//tags -->
 	<link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />	
 	<link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
@@ -56,7 +56,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							<li><a href="/sanpham">Quản lý sản phẩm</a></li>
 						</ul>
 						<ul>
-							<li><a href="/user">Quản lý khách hàng</a></li>
+							<li  style="background: #00FF00"><a href="/user">Quản lý khách hàng</a></li>
 						</ul>
 						<ul>
 							<li><a href="/nhacungcap">Quản lý nhà cung	cấp</a></li>

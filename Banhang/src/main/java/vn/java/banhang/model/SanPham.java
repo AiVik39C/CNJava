@@ -1,5 +1,6 @@
 package vn.java.banhang.model;
 
+import java.io.IOException;
 import java.io.Serializable;
 import java.util.List;
 
@@ -12,6 +13,10 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+
+import org.springframework.web.multipart.MultipartFile;
+
+import vn.java.banhang.util.FileHelper;
 
 @Entity
 @Table(name = "SanPham")
@@ -42,6 +47,7 @@ public class SanPham implements Serializable {
 	public SanPham(Long id_SanPham, String tenSanPham, Float giam, Float giaBan, NhaCungCap nhaCungCap, Loai loai,
 			String hinhAnh, String moTa, Integer soLuongNhap) {
 		super();
+		
 		this.id_SanPham = id_SanPham;
 		this.tenSanPham = tenSanPham;
 		this.giam = giam;
@@ -61,6 +67,15 @@ public class SanPham implements Serializable {
 		this.nhaCungCap = nhaCungCap;
 		this.loai = loai;
 		this.hinhAnh = hinhAnh;
+//		try {
+//			this.hinhAnh = new FileHelper().saveFile(hinhAnh);
+//		} catch (IllegalStateException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		} catch (IOException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
 		this.moTa = moTa;
 		this.soLuongNhap = soLuongNhap;
 	}

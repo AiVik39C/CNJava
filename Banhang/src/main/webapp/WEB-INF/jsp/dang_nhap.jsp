@@ -109,7 +109,7 @@ span.psw {
 
   <div class="container" style="background-color:#f1f1f1">
     <button type="button" class="cancelbtn">Hủy</button>
-    <span class="psw">Quên <a href="#">mật khẩu</a></span>
+    <span class="psw"> <a href="#">Quên mật khẩu</a></span>
   </div>
   
   

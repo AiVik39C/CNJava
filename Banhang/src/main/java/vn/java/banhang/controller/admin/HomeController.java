@@ -30,28 +30,10 @@ public class HomeController {
 		return modelAndView;
 			
 	}
-	@GetMapping("/head")
+	@GetMapping("/homeadmin")
 	public ModelAndView getListHead() {
 		ModelAndView modelAndView = new ModelAndView();
-		modelAndView.setViewName("head");
-		List<SanPham> listSanPham = sanPhamService.getListSanPham();
-		modelAndView.addObject("listSanPham", listSanPham);
-		return modelAndView;
-			
-	}
-	@GetMapping("/menu")
-	public ModelAndView getListMenu() {
-		ModelAndView modelAndView = new ModelAndView();
-		modelAndView.setViewName("menu");
-		List<SanPham> listSanPham = sanPhamService.getListSanPham();
-		modelAndView.addObject("listSanPham", listSanPham);
-		return modelAndView;
-			
-	}
-	@GetMapping("/footer")
-	public ModelAndView getListFooter() {
-		ModelAndView modelAndView = new ModelAndView();
-		modelAndView.setViewName("footer");
+		modelAndView.setViewName("index_admin");
 		List<SanPham> listSanPham = sanPhamService.getListSanPham();
 		modelAndView.addObject("listSanPham", listSanPham);
 		return modelAndView;
