@@ -11,7 +11,7 @@ import vn.java.banhang.model.TaiKhoan;
 public interface TaiKhoanRepository extends JpaRepository<TaiKhoan, Long> {
 	
 	List<TaiKhoan> getListByQuyen(Quyen quyen);
-	Optional<TaiKhoan> findTaiKhoanById_TaiKhoanAndQuyen(Long id, Quyen quyen);
+	Optional<TaiKhoan> findTaiKhoanByQuyen(Quyen quyen);
 	Optional<TaiKhoan> findTaiKhoanByTenTaiKhoanAndQuyen(String username, Quyen quyen);
 	Optional<TaiKhoan> findTaiKhoanByTenTaiKhoanAndMatKhau(String username, String password);
 	boolean existsByTenTaiKhoanAndQuyen(String username, Quyen quyen);

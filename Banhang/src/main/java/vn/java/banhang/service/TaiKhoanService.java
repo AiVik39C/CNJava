@@ -121,7 +121,13 @@ public class TaiKhoanService {
 		return null;
 	}
 	
-	public TaiKhoan findByIdAndQuyen(Long id, Quyen quyen) {
-		return taiKhoanRepository.findTaiKhoanById_TaiKhoanAndQuyen(id, quyen).orElse(null);
+	public TaiKhoan findByIdAndQuyen(Long id, Quyen quyen) {	
+		TaiKhoan taiKhoan =  taiKhoanRepository.findById(id).orElse(null);
+		if (taiKhoan != null) {
+			if (taiKhoan.getQuyen() == quyen) {
+				return taiKhoan;
+			}
+		}
+		return null;
 	}
 }
