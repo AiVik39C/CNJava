@@ -9,8 +9,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -36,8 +36,9 @@ public class SanPham implements Serializable {
 	private String moTa;
 	private Integer soLuongNhap;
 	
-	@ManyToMany(mappedBy = "listSanPham")
-	private List<DonHang> listDonHang;
+	@OneToMany(mappedBy = "sanPham")
+	private List<DonHangSanPham> listDonHangSanPham;
+	
 	public SanPham() {}
 	public SanPham(Long id_SanPham, String tenSanPham, Float giam, Float giaBan, NhaCungCap nhaCungCap, Loai loai,
 			String hinhAnh, String moTa, Integer soLuongNhap) {

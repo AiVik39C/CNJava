@@ -1,7 +1,6 @@
 package vn.java.banhang.controller.admin;
 
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -13,7 +12,6 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.servlet.ModelAndView;
 
-import vn.java.banhang.exception.ResourceNotFoundException;
 import vn.java.banhang.model.Loai;
 import vn.java.banhang.service.LoaiService;
 @Controller
@@ -36,7 +34,7 @@ public class LoaiController {
 	public ModelAndView createLoai(@RequestBody Loai loai) {
 		ModelAndView modelAndView = new ModelAndView();
 		modelAndView.setViewName("quan_ly_loai_san_pham");
-		List<Loai> listLoai = loaiService.getListLoai();
+		Loai listLoai = loaiService.createLoai(loai);
 		modelAndView.addObject("listLoai", listLoai);
 		return modelAndView;
 	}
@@ -54,7 +52,12 @@ public class LoaiController {
 	public ModelAndView getDetailLoai(@PathVariable(value = "id") Long id) throws Exception {
 		ModelAndView modelAndView = new ModelAndView();
 		modelAndView.setViewName("quan_ly_loai_san_pham");
-		Optional<Loai> loai = loaiService.findLoaiById(id);
+		Loai loai = loaiService.findLoaiById(id).orElse(null);
+		if (loai == null) {
+			String error = "Id loại không chính xác!";
+			modelAndView.addObject(error);
+			return modelAndView;
+		}
 		modelAndView.addObject(loai);
 		return modelAndView;
 			
@@ -63,8 +66,14 @@ public class LoaiController {
 	public ModelAndView deleteLoai(@PathVariable(value = "id") Long id) throws Exception {
 		ModelAndView modelAndView = new ModelAndView();
 		modelAndView.setViewName("quan_ly_loai_san_pham");
-		Optional<Loai> loai = loaiService.findLoaiById(id);
-		modelAndView.addObject(loai);
+		Loai loai = loaiService.findLoaiById(id).orElse(null);
+		if (loai == null) {
+			String error = "Id loại không chính xác!";
+			modelAndView.addObject(error);
+			return modelAndView;
+		}
+		loaiService.deleteLoai(loai);
+		modelAndView.addObject("Xoá Loại sản phầm thành công!");
 		return modelAndView;
 	}
 }

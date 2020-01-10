@@ -7,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import vn.java.banhang.model.Loai;
-import vn.java.banhang.model.NhaCungCap;
 import vn.java.banhang.repository.LoaiRepository;
 
 @Service
@@ -20,8 +19,6 @@ public class LoaiService {
 		return loaiRepository.save(request);
 		
 	}
-	
-	
 		
 	public List<Loai> getListLoai() {
 		return loaiRepository.findAll();

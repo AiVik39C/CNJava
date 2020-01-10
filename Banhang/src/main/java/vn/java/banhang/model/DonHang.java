@@ -4,16 +4,16 @@ import java.io.Serializable;
 import java.time.Instant;
 import java.util.List;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import org.springframework.data.annotation.CreatedDate;
@@ -31,27 +31,35 @@ public class DonHang implements Serializable{
 	@JoinColumn(name = "id_TaiKhoan")
 	private TaiKhoan taiKhoan;
 	
-	@ManyToMany(fetch = FetchType.LAZY)
-   	@JoinTable(name = "DonHang_SanPham",
-            joinColumns = @JoinColumn(name = "donHang_id"),
-            inverseJoinColumns = @JoinColumn(name = "sanPham_id"))
-	private List<SanPham> listSanPham;
+	@OneToMany(mappedBy = "donHang")
+	private List<DonHangSanPham> listDonHangSanPham;
 	
 	private Integer tongSoLuong;
 	private Float tongTien;
+	
 	@CreatedDate
 	private Instant ngayMua;
-	private String tinhTrangDH;
+	
+	@Enumerated(EnumType.STRING)
+	private StatusDonHang tinhTrangDH;
+	
 	public DonHang() {}
-	public DonHang(Long id_DonHang, TaiKhoan taiKhoan, List<SanPham> listSanPham, Integer tongSoLuong, Float tongTien,
-			Instant ngayMua, String tinhTrangDH) {
+	public DonHang(Long id_DonHang, TaiKhoan taiKhoan, List<DonHangSanPham> listDonHangSanPham, Integer tongSoLuong, Float tongTien,
+			Instant ngayMua, StatusDonHang tinhTrangDH) {
 		super();
 		this.id_DonHang = id_DonHang;
 		this.taiKhoan = taiKhoan;
-		this.listSanPham = listSanPham;
+		this.listDonHangSanPham = listDonHangSanPham;
 		this.tongSoLuong = tongSoLuong;
 		this.tongTien = tongTien;
 		this.ngayMua = ngayMua;
+		this.tinhTrangDH = tinhTrangDH;
+	}
+	
+	public DonHang(TaiKhoan taiKhoan, Float tongTien, StatusDonHang tinhTrangDH) {
+		super();
+		this.taiKhoan = taiKhoan;
+		this.tongTien = tongTien;
 		this.tinhTrangDH = tinhTrangDH;
 	}
 	
@@ -66,12 +74,6 @@ public class DonHang implements Serializable{
 	}
 	public void setTaiKhoan(TaiKhoan taiKhoan) {
 		this.taiKhoan = taiKhoan;
-	}
-	public List<SanPham> getListSanPham() {
-		return listSanPham;
-	}
-	public void setListSanPham(List<SanPham> listSanPham) {
-		this.listSanPham = listSanPham;
 	}
 
 	public Integer getTongSoLuong() {
@@ -92,10 +94,17 @@ public class DonHang implements Serializable{
 	public void setNgayMua(Instant ngayMua) {
 		this.ngayMua = ngayMua;
 	}
-	public String getTinhTrangDH() {
+	public StatusDonHang getTinhTrangDH() {
 		return tinhTrangDH;
 	}
-	public void setTinhTrangDH(String tinhTrangDH) {
+	public void setTinhTrangDH(StatusDonHang tinhTrangDH) {
 		this.tinhTrangDH = tinhTrangDH;
 	}
+	public List<DonHangSanPham> getListDonHangSanPham() {
+		return listDonHangSanPham;
+	}
+	public void setListDonHangSanPham(List<DonHangSanPham> listDonHangSanPham) {
+		this.listDonHangSanPham = listDonHangSanPham;
+	}
+	
 }

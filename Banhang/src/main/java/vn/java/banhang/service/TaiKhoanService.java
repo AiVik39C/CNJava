@@ -121,8 +121,7 @@ public class TaiKhoanService {
 		return null;
 	}
 	
-//	public Loai createTaiKhoan(Loai loaiRequest) {
-//		Loai createLoai = saveLoai(loaiRequest);
-//		return createLoai;
-//	}
+	public TaiKhoan findByIdAndQuyen(Long id, Quyen quyen) {
+		return taiKhoanRepository.findTaiKhoanById_TaiKhoanAndQuyen(id, quyen).orElse(null);
+	}
 }

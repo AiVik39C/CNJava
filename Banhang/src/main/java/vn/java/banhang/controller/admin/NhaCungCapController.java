@@ -1,7 +1,6 @@
 package vn.java.banhang.controller.admin;
 
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -25,7 +24,7 @@ public class NhaCungCapController {
 		ModelAndView modelAndView = new ModelAndView();
 		modelAndView.setViewName("quan_ly_nha_cung_cap");
 		List<NhaCungCap> listNCC = nhaCungCapService.getListNCC();
-		modelAndView.addObject("listUser", listNCC);
+		modelAndView.addObject("listNCC", listNCC);
 		return modelAndView;
 			
 	}
@@ -34,8 +33,8 @@ public class NhaCungCapController {
 	public ModelAndView createNCC(@RequestBody NhaCungCap ncc) {
 		ModelAndView modelAndView = new ModelAndView();
 		modelAndView.setViewName("quan_ly_nha_cung_cap");
-		List<NhaCungCap> listNCC = nhaCungCapService.getListNCC();
-		modelAndView.addObject("listNCC", listNCC);
+		NhaCungCap nhaCungCap = nhaCungCapService.createNCC(ncc);
+		modelAndView.addObject("nhaCungCap", nhaCungCap);
 		return modelAndView;
 	}
 	//update
@@ -52,7 +51,12 @@ public class NhaCungCapController {
 	public ModelAndView getDetailNCC(@PathVariable(value = "id") Long id) throws Exception {
 		ModelAndView modelAndView = new ModelAndView();
 		modelAndView.setViewName("quan_ly_nha_cung_cap");
-		Optional<NhaCungCap> nhaCungCap = nhaCungCapService.findNCCId(id);
+		NhaCungCap nhaCungCap = nhaCungCapService.findNCCId(id).orElse(null);
+		if (nhaCungCap == null) {
+			String error = "Id nhà cung cấp không chính xác!";
+			modelAndView.addObject(error);
+			return modelAndView;
+		}
 		modelAndView.addObject(nhaCungCap);
 		return modelAndView;
 			
@@ -61,7 +65,14 @@ public class NhaCungCapController {
 	public ModelAndView deleteNCC(@PathVariable(value = "id") Long id) throws Exception {
 		ModelAndView modelAndView = new ModelAndView();
 		modelAndView.setViewName("quan_ly_nha_cung_cap");
-		Optional<NhaCungCap> nhaCungCap = nhaCungCapService.findNCCId(id);
+		NhaCungCap nhaCungCap = nhaCungCapService.findNCCId(id).orElse(null);
+		if (nhaCungCap == null) {
+			String error = "Id nhà cung cấp không chính xác!";
+			modelAndView.addObject(error);
+			return modelAndView;
+		}
+		nhaCungCapService.deleteNCC(nhaCungCap);
+		modelAndView.addObject("Xoá nhà cung cấp thành công!");
 		modelAndView.addObject(nhaCungCap);
 		return modelAndView;
 	}
