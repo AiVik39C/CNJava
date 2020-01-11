@@ -36,7 +36,8 @@ input[type=submit]:hover {
 </header>
 
 <div class="ngoai">
-	 <form action="">
+	 
+	 
 	<table width="70%" height="auto" >
 		<tr>
 		
@@ -50,14 +51,17 @@ input[type=submit]:hover {
 				<br>Mô tả: 
 				${sanpham.moTa}
 				<br>
+			<form action="/addOrder", method="post">
+	 		<input type="hidden" name="sanPhamId" value="${sanpham.id_SanPham}">
 				<!-- chuyển qa trang mua hàng-->
 			<input type="submit"  value="Mua hàng">
+			</form>
 			</td>
 		</tr>		
 		
 	</table>
 	
-	</form>
+	
 	<div>
 	<ul style = "background: #AAAAAA">
 	

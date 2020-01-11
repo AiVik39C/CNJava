@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -20,6 +21,7 @@ import vn.java.banhang.modelRequest_Response.ThanhToanRequest;
 import vn.java.banhang.service.DonHangService;
 import vn.java.banhang.service.SanPhamService;
 import vn.java.banhang.service.TaiKhoanService;
+import vn.java.banhang.util.Constant;
 
 @Controller
 public class DonHangController {
@@ -36,6 +38,14 @@ public class DonHangController {
 	public ModelAndView getListDonHang() {
 		ModelAndView modelAndView = new ModelAndView();
 		modelAndView.setViewName("quan_ly_don_hang");
+		List<DonHang> listDonHang = donHangService.getListDonHang();
+		modelAndView.addObject("listDonHang", listDonHang);
+		return modelAndView;		
+	}
+	@GetMapping("/thanhtoan")
+	public ModelAndView getListThanhToan() {
+		ModelAndView modelAndView = new ModelAndView();
+		modelAndView.setViewName("thanh_toan");
 		List<DonHang> listDonHang = donHangService.getListDonHang();
 		modelAndView.addObject("listDonHang", listDonHang);
 		return modelAndView;		
@@ -58,14 +68,14 @@ public class DonHangController {
 	}
 	
 	@PostMapping("/addOrder")
-	public ModelAndView addOrder(@RequestBody AddOrderRequest request) {
+	public ModelAndView addOrder(@ModelAttribute AddOrderRequest request) {
 		ModelAndView modelAndView = new ModelAndView();
-		modelAndView.setViewName("quan_ly_don_hang");
-		TaiKhoan taiKhoan = taiKhoanService.findByIdAndQuyen(request.getUserId(), Quyen.KHACH_HANG);
+		modelAndView.setViewName("gio_hang");
+//		TaiKhoan taiKhoan = taiKhoanService.findByIdAndQuyen(, Quyen.KHACH_HANG);
 		SanPham sanPham = sanPhamService.findSanPhamId(request.getSanPhamId());
-		if (taiKhoan == null) {
+		if (Constant.taiKhoan == null) {
 			String error = "userId không chính xác!";
-			modelAndView.addObject(error);
+			modelAndView.addObject("error",error);
 			return modelAndView;
 		}
 		if (sanPham == null) {
@@ -74,19 +84,19 @@ public class DonHangController {
 			return modelAndView;
 		}
 		if (sanPham.getSoLuongNhap() > 0) {
-			DonHang donHang = donHangService.addCart(taiKhoan, sanPham);
-			modelAndView.addObject(donHang);
+			DonHang donHang = donHangService.addCart(Constant.taiKhoan, sanPham, 1);
+//			modelAndView.addObject(donHang);
 		} else {
-			modelAndView.addObject("Sản phẩm này đang hết hàng!");
+			modelAndView.addObject("message", "Sản phẩm này đang hết hàng!");
 		}
 		
-		return modelAndView;
+		return new ModelAndView("redirect:/giohang");
 	}
 	
 	@PostMapping("/thanhtoan")
 	public ModelAndView thanhToan(@RequestBody ThanhToanRequest request) {
 		ModelAndView modelAndView = new ModelAndView();
-		modelAndView.setViewName("quan_ly_don_hang");
+		modelAndView.setViewName("gio_hang");
 		DonHang donHang = donHangService.findDonHangId(request.getDonHangId()).orElse(null);
 		if (donHang == null) {
 			String error = "Id đơn hàng không chính xác!";

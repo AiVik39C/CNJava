@@ -22,6 +22,7 @@ import vn.java.banhang.modelRequest_Response.SanPhamRequest;
 import vn.java.banhang.service.LoaiService;
 import vn.java.banhang.service.NhaCungCapService;
 import vn.java.banhang.service.SanPhamService;
+import vn.java.banhang.util.Constant;
 import vn.java.banhang.util.FileHelper;
 @Controller
 public class SanPhamController {
@@ -84,6 +85,7 @@ public class SanPhamController {
 		ModelAndView modelAndView = new ModelAndView();
 		modelAndView.setViewName("chi_tiet_san_pham");
 		SanPham sanPham = sanPhamService.findSanPhamId(id);
+		modelAndView.addObject("user", Constant.taiKhoan);
 		modelAndView.addObject("sanpham", sanPham);
 		return modelAndView;
 			

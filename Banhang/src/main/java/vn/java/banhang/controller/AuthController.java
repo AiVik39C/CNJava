@@ -16,7 +16,7 @@ import vn.java.banhang.model.TaiKhoan;
 import vn.java.banhang.modelRequest_Response.DangKyRequest;
 import vn.java.banhang.modelRequest_Response.DangNhapRequest;
 import vn.java.banhang.service.TaiKhoanService;
-import vn.java.banhang.util.Constraint;
+import vn.java.banhang.util.Constant;
 
 @Controller
 public class AuthController {
@@ -72,7 +72,7 @@ public class AuthController {
 //		response.setData(taiKhoan);
 //		modelAndView.addObject(response);
 		redirectAttributes.addFlashAttribute("user", taiKhoan);
-		Constraint.taiKhoan = taiKhoan;
+		Constant.taiKhoan = taiKhoan;
 		if (taiKhoan.getQuyen() == Quyen.ADMIN) {
 //			redirectAttributes.addAttribute("user", taiKhoan);
 			RedirectView redirectView = new RedirectView("/homeadmin", true);

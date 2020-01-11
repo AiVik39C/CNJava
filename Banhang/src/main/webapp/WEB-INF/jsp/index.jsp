@@ -89,6 +89,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<!-- first section (nuts) -->
 
 					<div class="product-sec1">
+					<form action="/addOrder" method="post">
 						<c:forEach var="sanpham" items="${listSanPham}">
 							<div class="col-md-4 product-men">
 								<div class="men-pro-item simpleCart_shelfItem">
@@ -110,7 +111,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 										</div>
 										<div
 											class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out">
-											<form action="#" method="post">
+											
 												<fieldset>
 													<input type="hidden" name="cmd" value="_cart" /> <input
 														type="hidden" name="add" value="1" /> <input
@@ -124,13 +125,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 														type="submit" name="submit" value="Thêm vào giỏ"
 														class="button" />
 												</fieldset>
-											</form>
+											
 										</div>
 
 									</div>
 								</div>
 							</div>
 						</c:forEach>
+						</form>
 						<div class="clearfix"></div>
 					</div>
 

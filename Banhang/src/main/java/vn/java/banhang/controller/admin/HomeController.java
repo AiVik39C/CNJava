@@ -10,7 +10,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import vn.java.banhang.model.SanPham;
 import vn.java.banhang.service.SanPhamService;
-import vn.java.banhang.util.Constraint;
+import vn.java.banhang.util.Constant;
 
 
 @Controller
@@ -23,8 +23,8 @@ public class HomeController {
 		ModelAndView modelAndView = new ModelAndView();
 		modelAndView.setViewName("index");
 		List<SanPham> listSanPham = sanPhamService.getListSanPham();
-		if (Constraint.taiKhoan != null) {
-			modelAndView.addObject("user", Constraint.taiKhoan);
+		if (Constant.taiKhoan != null) {
+			modelAndView.addObject("user", Constant.taiKhoan);
 		}
 		modelAndView.addObject("listSanPham", listSanPham);
 		return modelAndView;

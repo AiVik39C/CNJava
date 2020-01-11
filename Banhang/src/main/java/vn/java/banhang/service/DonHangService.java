@@ -65,34 +65,37 @@ public class DonHangService {
 		return null;
 	}
 	
-	public DonHang addCart(TaiKhoan taiKhoan, SanPham sanPham ) {
+	public DonHang addCart(TaiKhoan taiKhoan, SanPham sanPham, int soLuong ) {
 		DonHang donHang = this.findByTaiKhoanAndStatusDonHang(taiKhoan, StatusDonHang.MOI);
 		if (donHang == null) {
 			donHang = new DonHang();
-			DonHangSanPham donHangSP = donHangSanPhamService.save(new DonHangSanPham(donHang, sanPham, 1));
 			donHang.setTaiKhoan(taiKhoan);
 			donHang.setTinhTrangDH(StatusDonHang.MOI);
-			donHang.setTongSoLuong(1);
+			donHang.setTongSoLuong(soLuong);
 			donHang.setTongTien(sanPham.getGiaBan());
+			
+//			donHang.setListDonHangSanPham(list);	
+			donHang = donHangRepository.save(donHang);
+			DonHangSanPham donHangSP = donHangSanPhamService.save(new DonHangSanPham(donHang, sanPham, soLuong));
 			List<DonHangSanPham> list = new ArrayList<DonHangSanPham>();
 			list.add(donHangSP);
-			donHang.setListDonHangSanPham(list);	
-			donHangRepository.save(donHang);
 		} else {
-			donHang.setTongSoLuong(donHang.getTongSoLuong() + 1);
+			int number = donHang.getTongSoLuong();
+			//donHang.setTongSoLuong(donHang.getTongSoLuong() + 1);
 			donHang.setTongTien(donHang.getTongTien() + sanPham.getGiaBan());
 			boolean check = false;
 			List<DonHangSanPham> list = donHang.getListDonHangSanPham();
 			for (DonHangSanPham item : list) {
 				if (item.getSanPham().getId_SanPham().equals(sanPham.getId_SanPham())) {
-					item.setSoLuong(item.getSoLuong() + 1);
+					item.setSoLuong(soLuong);
 					check = true;
+					number = number - item.getSoLuong() + soLuong;
 					donHangSanPhamService.save(item);
 					break;
 				}
 			}
 			if (!check) {
-				DonHangSanPham donHangSP = donHangSanPhamService.save(new DonHangSanPham(donHang, sanPham, 1));
+				DonHangSanPham donHangSP = donHangSanPhamService.save(new DonHangSanPham(donHang, sanPham, soLuong));
 				donHang.getListDonHangSanPham().add(donHangSP);
 			}
 			donHangRepository.save(donHang);

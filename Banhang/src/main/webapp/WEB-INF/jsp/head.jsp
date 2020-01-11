@@ -63,10 +63,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						</c:when>
 						<c:otherwise>
 							<li>
-						<a href="dangnhap"></span> Đăng nhập</a>
+						<a href="/dangnhap"></span> Đăng nhập</a>
 					</li>
 					<li>
-						<a href="dangky"></span> Đăng ký </a>
+						<a href="/dangky"></span> Đăng ký </a>
 					</li>
 						</c:otherwise>
 					</c:choose>
@@ -86,13 +86,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<!-- cart details -->
 				<div class="top_nav_right">
 					<div class="wthreecartaits wthreecartaits2 cart cart box_1">
-						<form action="#" method="post" class="last">
-							<input type="hidden" name="cmd" value="_cart">
-							<input type="hidden" name="display" value="1">
-							<button class="w3view-cart" type="submit" name="submit" value="">
+<!-- 						<form action="giohang" method="post" class="last"> -->
+<!-- 							<input type="hidden" name="cmd" value="_cart"> -->
+<!-- 							<input type="hidden" name="display" value="1"> -->
+							<a href="/giohang"><button class="w3view-cart" type="submit" name="submit" value="">
 								<i class="fa fa-cart-arrow-down" aria-hidden="true"></i>
-							</button>
-						</form>
+							</button></a>
+<!-- 						</form> -->
 					</div>
 				</div>
 				<!-- //cart details -->

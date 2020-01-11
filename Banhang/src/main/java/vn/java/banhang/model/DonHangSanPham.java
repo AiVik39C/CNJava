@@ -38,6 +38,8 @@ public class DonHangSanPham implements Serializable {
 		this.soLuong = soLuong;
 	}
 	
+	public DonHangSanPham() {}
+	
 	public DonHangSanPham( DonHang donHang, SanPham sanPham, int soLuong) {
 		super();
 		this.donHang = donHang;

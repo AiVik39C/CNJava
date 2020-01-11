@@ -1,6 +1,6 @@
 
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <html>
 <head>
 <title>V2 Store</title>
@@ -81,51 +81,43 @@ display:block;
     <th style="width:10%"> </th> 
    </tr> 
   </thead> 
-  <tbody><tr> 
-   <td data-th="Product"> 
-    <div class="row"> 
-     <div class="col-sm-2 hidden-xs"><img src="images/ao_so_mi.png" alt="Sản phẩm 1" class="img-responsive" width="100">
-     </div> 
-     <div class="col-sm-10"> 
-      <h4 class="nomargin">Sản phẩm 1</h4> 
-      <p>Sơ mi ca rô</p> 
-     </div> 
-    </div> 
-   </td> 
-   <td data-th="Price">200.000 đ</td> 
-   <td data-th="Quantity"><input class="form-control text-center" value="1" type="number">
-   </td> 
-   <td data-th="Subtotal" class="text-center">200.000 đ</td> 
-   <td class="actions" data-th="">
-    <button class="btn btn-info btn-sm"><i class="fa fa-edit"></i>
-    </button> 
-    <button class="btn btn-danger btn-sm"><i class="fa fa-trash-o"></i>
-    </button>
-   </td> 
-  </tr> 
+  <tbody>
+  <c:forEach var="donHang" items="${listDonHang}">
   <tr> 
    <td data-th="Product"> 
+   
     <div class="row"> 
-     <div class="col-sm-2 hidden-xs"><img src="images/ao1.jpg" alt="Sản phẩm 1" class="img-responsive" width="100">
+    <c:forEach var="donHangSanPham" items="${donHang.getListDonHangSanPham()}">
+     <div class="col-sm-2 hidden-xs"><a href="/sanpham/${donHangSanPham.getSanPham().id_SanPham}"><img width="100"
+											src="<c:out value ="${donHangSanPham.getSanPham().hinhAnh}"/>" alt=""></a> 
      </div> 
      <div class="col-sm-10"> 
-      <h4 class="nomargin">Sản phẩm 2</h4> 
-      <p>Áo dài cách tân chim hạc in 3D</p> 
+      <h4 class="nomargin">
+			<c:out value="${donHangSanPham.getSanPham().tenSanPham}" />
+		</h4>
+      <p><c:out value="${donHangSanPham.getSanPham().moTa}" /></p> 
      </div> 
+     </c:forEach>
     </div> 
    </td> 
-   <td data-th="Price">300.000 đ</td> 
-   <td data-th="Quantity"><input class="form-control text-center" value="1" type="number">
-   </td> 
-   <td data-th="Subtotal" class="text-center">300.000 đ</td> 
-   <td class="actions" data-th="">
-    <button class="btn btn-info btn-sm"><i class="fa fa-edit"></i>
-    </button> 
-    <button class="btn btn-danger btn-sm"><i class="fa fa-trash-o"></i>
-    </button>
-   </td> 
+   <td></td>
+   
+   <td>${donHang.getTongSoLuong()}</td>
+   <td>${Math.round(donHang.getTongTien())}</td>
+
+<!--    <td class="actions" data-th=""> -->
+<!--     <button class="btn btn-info btn-sm"><i class="fa fa-edit"></i> -->
+<!--     </button>  -->
+<!--     <button class="btn btn-danger btn-sm"><i class="fa fa-trash-o"></i> -->
+<!--     </button> -->
+<!--    </td>  -->
   </tr> 
-  </tbody><tfoot> 
+  </c:forEach>
+  </tbody>
+  
+  
+  
+  <tfoot> 
    <tr class="visible-xs"> 
     <td class="text-center"><strong>Tổng 200.000 đ</strong>
     </td> 
@@ -136,7 +128,7 @@ display:block;
     <td colspan="2" class="hidden-xs"> </td> 
     <td class="hidden-xs text-center"><strong>Tổng tiền 500.000 đ</strong>
     </td> 
-    <td><a href="http://hocwebgiare.com/" class="btn btn-success btn-block">Thanh toán <i class="fa fa-angle-right"></i></a>
+    <td><a href="" class="btn btn-success btn-block">Thanh toán <i class="fa fa-angle-right"></i></a>
     </td> 
    </tr> 
   </tfoot> 
